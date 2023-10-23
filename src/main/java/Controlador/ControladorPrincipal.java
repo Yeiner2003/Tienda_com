@@ -1,25 +1,24 @@
 package Controlador;
 
+
+//import Modelo.ModeloUsuario;
 import Modelo.ModeloUsuario;
-import Modelo.Modelocliente;
-import Modelo.Modeloproveedor;
 import Vista.Nuevo_Cliente;
-import Vista.Nuevo_Proveedor;
 import Vista.Nuevo_usuario_vista;
+import Vista.P;
 import Vista.Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Map;
+import java.awt.event.MouseAdapter;
 import javax.swing.JFrame;
+import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class ControladorPrincipal implements ActionListener {
 
-    Nuevo_Proveedor nuev = new Nuevo_Proveedor();
-//    Modelocliente mod = new Modelocliente();
-    Modeloproveedor prov = new Modeloproveedor();
+public class ControladorPrincipal implements ActionListener, ChangeListener{
+
+    P nuev = new P();
     Nuevo_Cliente nue = new Nuevo_Cliente();
-    ModeloUsuario usu = new ModeloUsuario();
     Principal prin = new Principal();
     Nuevo_usuario_vista us = new Nuevo_usuario_vista();
 
@@ -30,14 +29,31 @@ public class ControladorPrincipal implements ActionListener {
         us.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         nue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         nuev.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        prin.getJdprincipal().addChangeListener(this);
     }
 
     public void iniciarPrincipal() {
         prin.setLocationRelativeTo(null);
         prin.setTitle("Principal");
         prin.setVisible(true);
+        prin.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        gestionpanel();
     }
 
+    public void gestionpanel (){
+        if (prin.getJdprincipal().getSelectedIndex()==0){
+        
+        }
+        prin.getJdprincipal().addChangeListener(new ChangeListener(){
+         @Override
+         public void stateChanged(ChangeEvent e) {
+        }
+    
+      });
+   }
+    
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(prin.getLblnuevo())) {
@@ -53,7 +69,27 @@ public class ControladorPrincipal implements ActionListener {
             Controlador_proveedor con = new Controlador_proveedor();
             con.llenarproveedor();
 
-        }
+         }
+        
     }
 
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        int seleccion= prin.getJdprincipal().getSelectedIndex();
+        System.out.println("La pestañaesta en la posició "+seleccion);
+       if (seleccion==1){
+           ModeloUsuario modUsu = new ModeloUsuario();
+           modUsu.mostrarTablaUsuario(prin.)
+       }
+        prin.getTXTbuscar().addMouseListener(new MouseAdapter (){
+        public void MouseClickd (MouseAdapter e){
+            prin.getTXTbuscar().setText("color BLACK");
+        }
+    });
+    }
+    
 }
+   
+    
+
+
