@@ -83,6 +83,14 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
         this.lblclave = lblclave;
     }
 
+    public JLabel getLbldocumento() {
+        return lbldocumento;
+    }
+
+    public void setLbldocumento(JLabel lbldocumento) {
+        this.lbldocumento = lbldocumento;
+    }
+
     
 
     
@@ -104,13 +112,16 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
     }
 
     public JTextField getTxtdocumento() {
-        return txtdocumento;
+        return Txtdocumento;
     }
 
-    public void setTxtdocumento(JTextField txtdocumento) {
-        this.txtdocumento = txtdocumento;
+    public void setTxtdocumento(JTextField Txtdocumento) {
+        this.Txtdocumento = Txtdocumento;
     }
 
+ 
+
+   
     public JTextField getTxtnombre() {
         return txtnombre;
     }
@@ -139,6 +150,14 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
 
     public void setTxttelefono(JTextField txttelefono) {
         this.txttelefono = txttelefono;
+    }
+
+    public JComboBox<String> getCbxtipodocu() {
+        return cbxtipodocu;
+    }
+
+    public void setCbxtipodocu(JComboBox<String> cbxtipodocu) {
+        this.cbxtipodocu = cbxtipodocu;
     }
     
     
@@ -171,8 +190,8 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
         lbllogin = new javax.swing.JLabel();
         lblclave = new javax.swing.JLabel();
         lblfecha = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         lblnuevousuario = new javax.swing.JLabel();
-        txtdocumento = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
         txttelefono = new javax.swing.JTextField();
         txtcorreo = new javax.swing.JTextField();
@@ -196,6 +215,8 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         getjComboxrol = new javax.swing.JComboBox<>();
         getTxtsexo = new javax.swing.JComboBox<>();
+        Txtdocumento = new javax.swing.JTextField();
+        cbxtipodocu = new javax.swing.JComboBox<>();
 
         jButton1.setText("jButton1");
 
@@ -229,6 +250,8 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
 
         lblfecha.setText("fecha de nacimiento");
 
+        jLabel6.setText("tipo documento");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -250,7 +273,8 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
                                     .addComponent(lblcargo)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(lblsexo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lbldireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(lbldireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel6)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lbllogin)))
@@ -264,9 +288,11 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(54, 54, 54)
                 .addComponent(lbldocumento)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(15, 15, 15)
                 .addComponent(lblnombre)
                 .addGap(43, 43, 43)
                 .addComponent(lbltelefono)
@@ -284,7 +310,7 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
                 .addComponent(lbllogin)
                 .addGap(32, 32, 32)
                 .addComponent(lblclave)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         lblnuevousuario.setForeground(new java.awt.Color(255, 51, 51));
@@ -375,6 +401,8 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
             }
         });
 
+        cbxtipodocu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "tarjeta de indetidad", "cedula", "pasaporte", "nit" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -385,21 +413,22 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtdocumento)
-                            .addComponent(txtnombre)
-                            .addComponent(txttelefono)
-                            .addComponent(txtcorreo)
-                            .addComponent(txtdireccion)
-                            .addComponent(jDfecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(getjComboxrol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(getTxtsexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txttelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtcorreo, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtdireccion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDfecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(getjComboxrol, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(getTxtsexo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPcontra)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2)
-                                .addGap(12, 12, 12)))
+                                .addGap(12, 12, 12))
+                            .addComponent(Txtdocumento, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxtipodocu, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
@@ -427,11 +456,11 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(lblnuevousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(lblnuevousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -444,11 +473,16 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblnuevousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtdocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Txtdocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbxtipodocu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl1))
@@ -483,7 +517,7 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lbl11)
                                     .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2)
                             .addComponent(lbl9)
@@ -534,6 +568,8 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Txtdocumento;
+    private javax.swing.JComboBox<String> cbxtipodocu;
     private javax.swing.JComboBox<String> getTxtsexo;
     private javax.swing.JComboBox<String> getjComboxrol;
     private javax.swing.JButton jButton1;
@@ -544,6 +580,7 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -573,7 +610,6 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtdireccion;
-    private javax.swing.JTextField txtdocumento;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables

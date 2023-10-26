@@ -25,7 +25,7 @@ public class ModeloUsuario {
     Conexion cone = new Conexion();
     Connection cn = cone.iniciarConexion();
 
-    private int doc, sex, rol;
+    private int doc, sex, rol, Tip;
     private String nom, dir, tec, cor, lo, cl;
     private Date fec;
 
@@ -125,6 +125,15 @@ public class ModeloUsuario {
         this.fec = fec;
     }
 
+    public int getTip() {
+        return Tip;
+    }
+
+    public void setTip(int Tip) {
+        this.Tip = Tip;
+    }
+    
+
     public Map<String, Integer> llenarCombo(String sexo) {
         String sql = "Select * from mostrar sexo";
         Map<String, Integer> llenar_combo = new HashMap<>();
@@ -200,7 +209,7 @@ public class ModeloUsuario {
         editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png")));
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png")));
 
-        String[] titulo = {"Documento", "Tipo de Documento", "Nombre", "Rol", "Telefono", "Correo", "Género", "Dirección", "Fecha de Nacimiento", "", ""};
+        String[] titulo = {"Documento",  "Rol" ,"Genero", "Nombre", "Telefono", "Correo", "Fecha de nacimiento","Tipo de Documento","", ""};
 
         DefaultTableModel tablaUsuario = new DefaultTableModel(null, titulo) {
             public boolean isCellEditable(int row, int column) {
@@ -210,21 +219,21 @@ public class ModeloUsuario {
             }
         };
 
-        String sqlUsuario;
+        String sqlusuario;
         if (valor.equals("")) {
-            sqlUsuario = "SELECT * FROM mostrar_usuario";
+            sqlusuario = "SELECT * FROM mostrarusuario";
         } else {
-            sqlUsuario = "call consultar_usuario('" + valor + "')";
+            sqlusuario = "call consultar_usuario('" + valor + "')";
         }
         try {
             String[] dato = new String[titulo.length];
             Statement st = co.createStatement(); //Crea una consulta
-            ResultSet rs = st.executeQuery(sqlUsuario);
+            ResultSet rs = st.executeQuery(sqlusuario);
             while (rs.next()) {
                 for (int i = 0; i < titulo.length - 2; i++) {
                     dato[i] = rs.getString(i + 1);
                 }
-                tablaUsuario.addRow(new Object[]{dato[0], dato[1], dato[2], dato[3], dato[4], dato[5], dato[6], dato[7], dato[8], editar, eliminar});
+                tablaUsuario.addRow(new Object[]{dato[0], dato[1], dato[2], dato[3], dato[4], dato[5], dato[6], dato[7], editar, eliminar});
             }
             co.close();
 
@@ -234,13 +243,52 @@ public class ModeloUsuario {
         tabla.setModel(tablaUsuario);
         //Darle Tamaño a cada Columna
         int cantColum = tabla.getColumnCount();
-        int[] ancho = {100,180,100,150,100,160,100,180,150,30,30};
+        int[] ancho = {100,180,100,150,100,160,100,180,30,30};
         for(int i=0; i<cantColum; i++){
             TableColumn columna=tabla.getColumnModel().getColumn(i);
             columna.setPreferredWidth(ancho[i]);
         }
         conect.cerrarConexion();
     }
+     public void BuscarUsuario (int valor){
+         Conexion cone = new Conexion ();
+         Connection cn = cone.iniciarConexion();
+         String sql= "call_mostrarusuario("+valor+")";
+         
+         try{
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery(sql);
+             
+             while (rs.next()){
+                 setDoc(rs.getInt(1));
+                 setTip(rs.getInt(2));
+                 setNom(rs.getString(3));
+                 setTec(rs.getString(4));
+                 setCor(rs.getString(5));
+                 setDir(rs.getString(6));
+                 setFec(rs.getDate(7));
+                 setSex(rs.getInt(8));
+                 setRol(rs.getInt(9));
+                 setLo(rs.getString(10));
+                 setCl(rs.getString(11));
+                 
+             }
+         } catch (SQLException e){
+             e.printStackTrace();
+             
+         }
+     }
+     public String obtenerSeleccion (Map<String,Integer>dato,int valor){
+         for(Map.Entry<String,Integer> seleccion:dato.entrySet()){
+             if (seleccion.getValue()==valor){
+                 return seleccion.getKey();
+             }
+         } 
+         return null;
+     }
 
+    public void mostrarTablaUsuario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
 

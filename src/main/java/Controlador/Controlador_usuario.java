@@ -19,6 +19,7 @@ public class Controlador_usuario implements ActionListener {
     ModeloUsuario usu = new ModeloUsuario();
 
     public Controlador_usuario() {
+        us.getLblguardar().addActionListener(this);
         us.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         us.addWindowListener(new WindowAdapter() {
             public void windowClosed(WindowEvent e) {
@@ -53,9 +54,9 @@ public class Controlador_usuario implements ActionListener {
         if (e.getSource().equals(us.getLblguardar())) {
             if (us.getTxtdocumento().getText().isEmpty() || us.getTxtnombre().getText().isEmpty() || us.getTxttelefono().getText().isEmpty() || us.getTxtcorreo().getText().isEmpty() || us.getTxtdireccion().getText().isEmpty() || us.getjComboBox1().getSelectedItem().equals("seleccione...") || us.getjComboBox2().getSelectedItem().equals("seleccione...") || us.getjDateChooser1().getDate() == null || us.getTxtLogin().getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Falta de informacion");
-                
+
             } else {
-              
+
                 String valorSexo = us.getjComboBox1().getSelectedItem().toString();
                 int sexo = usu.llenarCombo("sexo").get(valorSexo);
 
@@ -65,16 +66,66 @@ public class Controlador_usuario implements ActionListener {
                 java.util.Date fec = us.getjDateChooser1().getDate();
                 long fe = fec.getTime();
                 java.sql.Date fecha = new Date(fe);
-                
+
                 // contraseña
-                char[]contra = us.getjPcontra().getPassword();
+                char[] contra = us.getjPcontra().getPassword();
                 String contraseña = String.valueOf(contra);
-                
+
                 usu.setDoc(Integer.parseInt(us.getTxtdocumento().getText()));
                 usu.setNom(us.getTxtnombre().getText());
                 usu.setFec(fecha);
+                usu.setNom(us.getTxtnombre().getText());
+                usu.setFec(fecha);
+                usu.setDir(us.getTxtdireccion().getText());
+                usu.setTec(us.getTxttelefono().getText());
+                usu.setCor(us.getTxtcorreo().getText());
+                usu.setLo(us.getTxtLogin().getText());
+                usu.setCl(us.getLblclave().getText());
+                usu.setSex(sexo);
+                usu.setRol(Rol);
+                
+                usu.mostrarTablaUsuario();
+                usu.Limpiar(us.getjButton1().getComponents());
             }
+        }
+    }
 
+    void actualizarUsuario(int doc) {
+        usu.BuscarUsuario(doc);
+        us.getTxtdocumento().setEnabled(false);
+        us.getTxtLogin().setEnabled(false);
+        us.getjComboBox1().setEnabled(false);
+        us.getTxtdocumento().setText(String.valueOf(doc));
+        us.getTxtcorreo().setText(usu.getCor());
+        us.getTxtnombre().setText(usu.getNom());
+        us.getTxtdireccion().setText(usu.getDir());
+        us.getTxttelefono().setText(usu.getTec());
+        us.getTxtLogin().setText(usu.getLo());
+        us.getjPcontra().setText(usu.getCl());
+        us.getjDateChooser1().setDate(usu.getFec());
+
+        Map<String, Integer> dato = usu.llenarCombo("sexo");
+        for (String sexo : dato.keySet()) {
+            us.getjComboBox1().addItem(sexo);
+
+            String valoSexo = usu.obtenerSeleccion(dato, usu.getSex());
+            us.getjComboBox1().setSelectedItem(valoSexo);
+
+            Map<String, Integer> datos = usu.llenarCombo("Rol");
+            for (String Rol : dato.keySet()) {
+                us.getjComboBox1().addItem(Rol);
+            }
+            String valorRol = usu.obtenerSeleccion(dato, usu.getRol());
+            us.getjComboBox2().setSelectedItem(valorRol);
+
+//           Map<String,Integer>datoT= usu.llenarCombo("tipodoc");
+//    for(String Tipo : datoT.keySet()){
+//        us.getjDateChooser1().addItem (Tipo);
+//    }
+//        String valorTipo = usu.obtenerSeleccion(datoT, usu.getTip());
+//        us.getjDateChooser1().setSelectedItem(valorTipo);
+//        
+//      us.getjButton1().setText("actualiza");
         }
 
     }

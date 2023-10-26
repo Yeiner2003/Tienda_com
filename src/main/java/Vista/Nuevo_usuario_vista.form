@@ -58,22 +58,23 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtdocumento" max="32767" attributes="0"/>
-                          <Component id="txtnombre" max="32767" attributes="0"/>
-                          <Component id="txttelefono" max="32767" attributes="0"/>
-                          <Component id="txtcorreo" max="32767" attributes="0"/>
-                          <Component id="txtdireccion" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txtnombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txttelefono" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtcorreo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtdireccion" alignment="0" max="32767" attributes="0"/>
                           <Component id="jDfecha" alignment="0" max="32767" attributes="0"/>
                           <Component id="getjComboxrol" alignment="0" max="32767" attributes="0"/>
                           <Component id="getTxtsexo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtLogin" min="-2" pref="201" max="-2" attributes="0"/>
+                          <Component id="txtLogin" alignment="0" pref="201" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jPcontra" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="Txtdocumento" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbxtipodocu" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -109,12 +110,12 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                              <Component id="lblnuevousuario" min="-2" pref="169" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                              <Component id="lblnuevousuario" min="-2" pref="169" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="65" max="32767" attributes="0"/>
@@ -134,12 +135,19 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="lblnuevousuario" min="-2" pref="42" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtdocumento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Txtdocumento" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="cbxtipodocu" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtnombre" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbl1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -184,7 +192,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           <Component id="lbl9" min="-2" max="-2" attributes="0"/>
@@ -225,6 +233,7 @@
                                           <Component id="lblsexo" alignment="0" max="32767" attributes="0"/>
                                           <Component id="lbldireccion" alignment="0" max="32767" attributes="0"/>
                                       </Group>
+                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -247,9 +256,11 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="lbldocumento" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="lblnombre" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="lbltelefono" min="-2" max="-2" attributes="0"/>
@@ -267,7 +278,7 @@
                   <Component id="lbllogin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="lblclave" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="167" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -323,6 +334,11 @@
             <Property name="text" type="java.lang.String" value="fecha de nacimiento"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="tipo documento"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="lblnuevousuario">
@@ -332,8 +348,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="                  Nuevo usuario"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtdocumento">
     </Component>
     <Component class="javax.swing.JTextField" name="txtnombre">
       <Events>
@@ -513,6 +527,24 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getTxtsexoActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txtdocumento">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbxtipodocu">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="Seleccione..."/>
+            <StringItem index="1" value="tarjeta de indetidad"/>
+            <StringItem index="2" value="cedula"/>
+            <StringItem index="3" value="pasaporte"/>
+            <StringItem index="4" value="nit"/>
+          </StringArray>
+        </Property>
+      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

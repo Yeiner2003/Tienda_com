@@ -7,6 +7,7 @@ package Vista;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -70,6 +71,22 @@ public class Principal extends javax.swing.JFrame {
         this.jpUsuario = jpUsuario;
     }
 
+    public JTable getJTUSUARIO() {
+        return JTUSUARIO;
+    }
+
+    public void setJTUSUARIO(JTable JTUSUARIO) {
+        this.JTUSUARIO = JTUSUARIO;
+    }
+
+    public JButton getLblnuevo11() {
+        return lblnuevo11;
+    }
+
+    public void setLblnuevo11(JButton lblnuevo11) {
+        this.lblnuevo11 = lblnuevo11;
+    }
+
 
 
     /**
@@ -81,25 +98,58 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Btlupa = new javax.swing.JButton();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         jdprincipal = new javax.swing.JTabbedPane();
         jpUsuario = new javax.swing.JPanel();
         lblnuevo = new javax.swing.JButton();
         TXTbuscar = new javax.swing.JTextField();
-        Btlupa = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTUSUARIO = new javax.swing.JTable();
         jpcliente = new javax.swing.JPanel();
         lblNuevo = new javax.swing.JButton();
         jPproveedor = new javax.swing.JPanel();
         jBproveedorp = new javax.swing.JButton();
         jPproducto = new javax.swing.JPanel();
+        lblnuevo13 = new javax.swing.JButton();
         jPfactura = new javax.swing.JPanel();
+        lblnuevo12 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblnuevo11 = new javax.swing.JButton();
         lbltienda = new javax.swing.JLabel();
+
+        Btlupa.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\lupa.png")); // NOI18N
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblnuevo.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\intimidad.png")); // NOI18N
         lblnuevo.setText("Nuevo");
 
-        Btlupa.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\lupa.png")); // NOI18N
+        JTUSUARIO.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(JTUSUARIO);
 
         javax.swing.GroupLayout jpUsuarioLayout = new javax.swing.GroupLayout(jpUsuario);
         jpUsuario.setLayout(jpUsuarioLayout);
@@ -109,20 +159,22 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(lblnuevo)
                 .addGap(121, 121, 121)
                 .addComponent(TXTbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(Btlupa, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 179, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jpUsuarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jpUsuarioLayout.setVerticalGroup(
             jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpUsuarioLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Btlupa)
-                    .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblnuevo)
-                        .addComponent(TXTbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGroup(jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblnuevo)
+                    .addComponent(TXTbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jdprincipal.addTab("Usuario", jpUsuario);
@@ -144,7 +196,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jpclienteLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lblNuevo)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         jdprincipal.addTab("Cliente", jpcliente);
@@ -165,36 +217,73 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPproveedorLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jBproveedorp)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         jdprincipal.addTab("proveedor", jPproveedor);
+
+        lblnuevo13.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\intimidad.png")); // NOI18N
+        lblnuevo13.setText("Nuevo");
 
         javax.swing.GroupLayout jPproductoLayout = new javax.swing.GroupLayout(jPproducto);
         jPproducto.setLayout(jPproductoLayout);
         jPproductoLayout.setHorizontalGroup(
             jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 664, Short.MAX_VALUE)
+            .addGroup(jPproductoLayout.createSequentialGroup()
+                .addComponent(lblnuevo13)
+                .addGap(0, 579, Short.MAX_VALUE))
         );
         jPproductoLayout.setVerticalGroup(
             jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 235, Short.MAX_VALUE)
+            .addGroup(jPproductoLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblnuevo13)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         jdprincipal.addTab("Producto", jPproducto);
+
+        lblnuevo12.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\intimidad.png")); // NOI18N
+        lblnuevo12.setText("Nuevo");
 
         javax.swing.GroupLayout jPfacturaLayout = new javax.swing.GroupLayout(jPfactura);
         jPfactura.setLayout(jPfacturaLayout);
         jPfacturaLayout.setHorizontalGroup(
             jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 664, Short.MAX_VALUE)
+            .addGroup(jPfacturaLayout.createSequentialGroup()
+                .addComponent(lblnuevo12)
+                .addGap(0, 579, Short.MAX_VALUE))
         );
         jPfacturaLayout.setVerticalGroup(
             jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 235, Short.MAX_VALUE)
+            .addGroup(jPfacturaLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblnuevo12)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         jdprincipal.addTab("Factura", jPfactura);
+
+        lblnuevo11.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\intimidad.png")); // NOI18N
+        lblnuevo11.setText("Nuevo");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblnuevo11)
+                .addGap(0, 579, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblnuevo11)
+                .addContainerGap(205, Short.MAX_VALUE))
+        );
+
+        jdprincipal.addTab("Ventas", jPanel1);
 
         lbltienda.setForeground(new java.awt.Color(255, 0, 0));
         lbltienda.setText("TIENDA COM");
@@ -215,8 +304,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbltienda, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jdprincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addComponent(jdprincipal))
         );
 
         pack();
@@ -229,16 +317,23 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btlupa;
+    private javax.swing.JTable JTUSUARIO;
     private javax.swing.JTextField TXTbuscar;
     private javax.swing.JButton jBproveedorp;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPfactura;
     private javax.swing.JPanel jPproducto;
     private javax.swing.JPanel jPproveedor;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jdprincipal;
     private javax.swing.JPanel jpUsuario;
     private javax.swing.JPanel jpcliente;
     private javax.swing.JButton lblNuevo;
     private javax.swing.JButton lblnuevo;
+    private javax.swing.JButton lblnuevo11;
+    private javax.swing.JButton lblnuevo12;
+    private javax.swing.JButton lblnuevo13;
     private javax.swing.JLabel lbltienda;
     // End of variables declaration//GEN-END:variables
 
