@@ -24,7 +24,7 @@ public class Controlador_usuario implements ActionListener {
         us.addWindowListener(new WindowAdapter() {
             public void windowClosed(WindowEvent e) {
                 ControladorPrincipal princi = new ControladorPrincipal();
-                princi.iniciarPrincipal();
+                princi.iniciarPrincipal(1);
             }
 
         });
@@ -83,9 +83,17 @@ public class Controlador_usuario implements ActionListener {
                 usu.setCl(us.getLblclave().getText());
                 usu.setSex(sexo);
                 usu.setRol(Rol);
-                
-                usu.mostrarTablaUsuario();
-                usu.Limpiar(us.getjButton1().getComponents());
+                if (us.getjButton1().getText().equals("guardar")) {
+                    usu.mostrarTablaUsuario();
+                    usu.Limpiar(us.getjButton1().getComponents());
+//                }else{
+//                    us.actualizarUsuario(modUsu.getDoc());
+//                    us.setVisible(false);
+//                    prin.setVisible(true);
+//                    prin.getJdprincipal().setSelectedIndex(1);
+//                    usu . mostrarTablaUsuario ( prin.getJTUSUARIO(), "" , "usuario" );
+//                
+                }
             }
         }
     }
@@ -118,16 +126,23 @@ public class Controlador_usuario implements ActionListener {
             String valorRol = usu.obtenerSeleccion(dato, usu.getRol());
             us.getjComboBox2().setSelectedItem(valorRol);
 
-//           Map<String,Integer>datoT= usu.llenarCombo("tipodoc");
-//    for(String Tipo : datoT.keySet()){
-//        us.getjDateChooser1().addItem (Tipo);
-//    }
-//        String valorTipo = usu.obtenerSeleccion(datoT, usu.getTip());
-//        us.getjDateChooser1().setSelectedItem(valorTipo);
-//        
-//      us.getjButton1().setText("actualiza");
+            Map<String, Integer> datoT = usu.llenarCombo("tipodoc");
+            for (String Tipo : datoT.keySet()) {
+                us.getjComboBox1().addItem(Tipo);
+            }
+            String valorTipo = usu.obtenerSeleccion(datoT, usu.getTip());
+            us.getjComboBox1().setSelectedItem(valorTipo);
+            prin.setVisible(false);
+            us.setLocationRelativeTo(null);
+            us.getjButton1().setText("actualiza");
+            us.setVisible(true);
         }
-
+//           void EliminarUsuario (int doc){
+//        int resp= JOptionPane.showConfirmDialog(null, "¿Desea eliminar al usuario? \n" + doc  , "Eliminar Usuario", JOptionPane.YES_OPTION);
+//            if(resp==JOptionPane.YES_OPTION){
+//                usu.setDoc(doc);
+//                usu.EliminarUsuario();
+//                usu.mostrarTablaUsuario(prin.getJTUSUARIO(), "", "usuario");
+//                            
     }
-
 }

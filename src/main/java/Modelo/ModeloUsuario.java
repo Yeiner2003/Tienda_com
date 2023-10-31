@@ -9,8 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -21,9 +24,11 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
 public class ModeloUsuario {
+    
 
     Conexion cone = new Conexion();
     Connection cn = cone.iniciarConexion();
+    
 
     private int doc, sex, rol, Tip;
     private String nom, dir, tec, cor, lo, cl;
@@ -153,6 +158,8 @@ public class ModeloUsuario {
     public void llenarnuevousuario() {
         Conexion cone = new Conexion();
         Connection cn = cone.iniciarConexion();//instanciamos la conexion
+        
+        
         String sql = "call ins_usuario (?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = cn.prepareStatement(sql);
@@ -192,7 +199,7 @@ public class ModeloUsuario {
             }
         }
     }
-     public void mostrarTablaUsuario(JTable tabla, String valor) {
+     public void mostrarTablaUsuario(JTable tabla, String valor, String nompesta) {
         Conexion conect = new Conexion();
         Connection co = conect.iniciarConexion();
 
@@ -205,12 +212,22 @@ public class ModeloUsuario {
         tabla.setDefaultRenderer(Object.class, new GestionCeldas());
         JButton editar = new JButton();
         JButton eliminar = new JButton();
-
+//         JButton agregar = new JButton();
+        
+        
         editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png")));
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png")));
+//          eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agregar.png")));
 
         String[] titulo = {"Documento",  "Rol" ,"Genero", "Nombre", "Telefono", "Correo", "Fecha de nacimiento","Tipo de Documento","", ""};
-
+//        int total = titulo.length;
+//        if(nompesta.equals("usuario")){
+//            titulo=Arrays.copyOf(titulo,titulo.length+2);
+//            titulo[titulo.length-1]="";
+//        }else{
+//            titulo=Arrays.copyOf(titulo,titulo.length+1);
+//            titulo[titulo.length-1]="";
+//        }
         DefaultTableModel tablaUsuario = new DefaultTableModel(null, titulo) {
             public boolean isCellEditable(int row, int column) {
 
@@ -286,6 +303,30 @@ public class ModeloUsuario {
          } 
          return null;
      }
+
+    public void EliminarUsuario() {
+    Conexion cone = new Conexion();
+    Connection cn = cone.iniciarConexion();
+    System.out.println(getDoc());
+    String eliUsuario ="call usuario_eli(?)";
+    try{
+    PreparedStatement ps = cn.prepareStatement(eliUsuario);
+    ps.setInt(1, getDoc());
+    ps.executeLargeUpdate();
+    Icon Icon = new ImageIcon(getClass().getResource("/img/eliminar(2).png"));
+//    JOptionPane.showMessageDialog(null, "Registro Eliminado", "Eliminar Usuario", JOptionPane.PLAIN_MESSAGE (Icon)"eliminar");
+    } catch (SQLException e){
+     e.printStackTrace();
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    }
 
     public void mostrarTablaUsuario() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

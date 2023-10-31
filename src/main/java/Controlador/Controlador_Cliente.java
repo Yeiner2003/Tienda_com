@@ -1,10 +1,13 @@
 package Controlador;
 
+import Modelo.ModeloUsuario;
 import Modelo.Modelocliente;
 import Vista.Nuevo_Cliente;
 import Vista.Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Map;
@@ -23,7 +26,7 @@ public class Controlador_Cliente implements ActionListener {
         nue.addWindowListener(new WindowAdapter() {
             public void windowClosed(WindowEvent e) {
                 ControladorPrincipal princi = new ControladorPrincipal();
-                princi.iniciarPrincipal();
+                princi.iniciarPrincipal(1);
             }
 
         });
@@ -42,7 +45,50 @@ public class Controlador_Cliente implements ActionListener {
         }
 
     }
+public void gestionCliente(){
+    
+     int seleccion = prin.getJdprincipal().getSelectedIndex();
+        System.out.println("La pestañaesta en la posició " + seleccion);
+        if (seleccion == 1) {
+            ModeloUsuario modUsu = new ModeloUsuario();
+            modUsu.mostrarTablaUsuario(prin.getJTUSUARIO(), "","usuario");
+        }
+        ModeloUsuario modUsu = new ModeloUsuario();
+        prin.getTXTbuscar().addMouseListener(new MouseAdapter() {
+            public void MouseClickd(MouseAdapter e) {
+                prin.getTXTbuscar().setText("color BLACK");
+            }
+        });
+//        prin.getTXTbuscar().getDocument().addDocumentListener(new DocumentListener() {
+//            @Override
+//            public void insertUpdate(DocumentEvent e) {
+//                modUsu.mostrarTablaUsuario(prin.getJpUsuario(), prin.getTXTbuscar().getText());
+//            }
+//
+//            @Override
+//            public void removeUpdate(DocumentEvent e) {
+//                modUsu.mostrarTablaUsuario(prin.getJpUsuario(), prin.getTXTbuscar().getText());
+//            }
+//
+//            @Override
+//            public void changedUpdate(DocumentEvent e) {
+//                modUsu.mostrarTablaUsuario(prin.getJpUsuario(), prin.getTXTbuscar().getText());
+//            }
+//
+//        });
+        prin.getJTUSUARIO().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = prin.getJTUSUARIO().rowAtPoint(e.getPoint());
+                int columna = prin.getJTUSUARIO().columnAtPoint(e.getPoint());
+                modUsu.setDoc(Integer.parseInt((String) prin.getJTUSUARIO().getValueAt(fila, 1).toString()));
+                if (columna == 9) {
+//                    us.
+                }
 
+            }
+        });
+}
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(nue.getjBGuardarC())) {

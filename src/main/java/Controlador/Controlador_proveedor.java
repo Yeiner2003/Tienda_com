@@ -27,7 +27,7 @@ public class Controlador_proveedor implements ActionListener {
         nuev.addWindowListener(new WindowAdapter() {
             public void windowClosed(WindowEvent e) {
                 ControladorPrincipal princi = new ControladorPrincipal();
-                princi.iniciarPrincipal();
+                princi.iniciarPrincipal(1);
             }
 
         });

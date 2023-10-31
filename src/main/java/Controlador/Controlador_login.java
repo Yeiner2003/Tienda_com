@@ -47,7 +47,7 @@ public class Controlador_login implements ActionListener, WindowListener {
             modlog.setContra(pass);
             if(modlog.validar(modlog.getUsu(), modlog.getContra())){
                 log.setVisible(false);
-                prin.iniciarPrincipal();
+                prin.iniciarPrincipal(1);
                 
                 
             }else{
@@ -71,7 +71,7 @@ public class Controlador_login implements ActionListener, WindowListener {
     @Override
     public void windowClosed(WindowEvent e) {
         ControladorPrincipal princi = new ControladorPrincipal();
-        princi.iniciarPrincipal();
+        princi.iniciarPrincipal(0);
    
     }
 

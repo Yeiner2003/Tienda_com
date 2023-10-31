@@ -2,6 +2,8 @@ package Modelo;
 
 import Controlador.Conexion;
 import Controlador.ControladorPrincipal;
+//import com.toedter.calendar.JDateChooser;
+//import java.awt.Component;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.Date;
@@ -12,8 +14,16 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
+//import javax.swing.JButton;
+//import javax.swing.JComboBox;
+//import javax.swing.JOptionPane;
+//import javax.swing.JTable;
+//import javax.swing.JTextField;
+//import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.JTableHeader;
+//import javax.swing.table.TableColumn;
 
-public class Modeloproveedor {
+public class Modelo_ventas {
 
     public class Modelocliente {
 
@@ -119,10 +129,9 @@ public class Modeloproveedor {
         public void setFec(Date fec) {
             this.fec = fec;
         }
-
-        public Map<String, Integer> llenarCombo() {
-            String sql = "Select * from mostrar sexo";
-            Map<String, Integer> llenar_combo = new HashMap<>();
+    public Map<String, Integer> llenarCombo() {
+        String sql = "Select * from mostrar Ventas";
+     Map<String, Integer> llenar_combo = new HashMap<>();
             try {
                 Statement st = cn.createStatement();
                 ResultSet rs = st.executeQuery(sql);
@@ -171,3 +180,7 @@ public void windowClosed(WindowEvent e) {
    
     }
 }
+    
+
+
+

@@ -4,6 +4,12 @@
  */
 package Vista;
 
+import java.awt.event.WindowAdapter;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author SENA
@@ -15,6 +21,94 @@ public class Ventas extends javax.swing.JPanel {
      */
     public Ventas() {
         initComponents();
+    }
+
+    public JLabel getLblventa() {
+        return Lblventa;
+    }
+
+    public void setLblventa(JLabel Lblventa) {
+        this.Lblventa = Lblventa;
+    }
+
+    public JButton getjBCancelar() {
+        return jBCancelar;
+    }
+
+    public void setjBCancelar(JButton jBCancelar) {
+        this.jBCancelar = jBCancelar;
+    }
+
+    public JButton getjBGuardar() {
+        return jBGuardar;
+    }
+
+    public void setjBGuardar(JButton jBGuardar) {
+        this.jBGuardar = jBGuardar;
+    }
+
+    public JComboBox<String> getjCtipodepago() {
+        return jCtipodepago;
+    }
+
+    public void setjCtipodepago(JComboBox<String> jCtipodepago) {
+        this.jCtipodepago = jCtipodepago;
+    }
+
+    public JLabel getLblDescripcion() {
+        return lblDescripcion;
+    }
+
+    public void setLblDescripcion(JLabel lblDescripcion) {
+        this.lblDescripcion = lblDescripcion;
+    }
+
+    public JLabel getLbldocumento() {
+        return lbldocumento;
+    }
+
+    public void setLbldocumento(JLabel lbldocumento) {
+        this.lbldocumento = lbldocumento;
+    }
+
+    public JLabel getLblproducto() {
+        return lblproducto;
+    }
+
+    public void setLblproducto(JLabel lblproducto) {
+        this.lblproducto = lblproducto;
+    }
+
+    public JLabel getLbltipopago() {
+        return lbltipopago;
+    }
+
+    public void setLbltipopago(JLabel lbltipopago) {
+        this.lbltipopago = lbltipopago;
+    }
+
+    public JTextField getTxtDocumento() {
+        return txtDocumento;
+    }
+
+    public void setTxtDocumento(JTextField txtDocumento) {
+        this.txtDocumento = txtDocumento;
+    }
+
+    public JTextField getTxtdescripcion() {
+        return txtdescripcion;
+    }
+
+    public void setTxtdescripcion(JTextField txtdescripcion) {
+        this.txtdescripcion = txtdescripcion;
+    }
+
+    public JTextField getTxtproducto() {
+        return txtproducto;
+    }
+
+    public void setTxtproducto(JTextField txtproducto) {
+        this.txtproducto = txtproducto;
     }
 
     /**
@@ -166,4 +260,16 @@ public class Ventas extends javax.swing.JPanel {
     private javax.swing.JTextField txtdescripcion;
     private javax.swing.JTextField txtproducto;
     // End of variables declaration//GEN-END:variables
+
+    public void setDefaultCloseOperation(int DISPOSE_ON_CLOSE) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void addWindowListener(WindowAdapter windowAdapter) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setLocationRelativeTo(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

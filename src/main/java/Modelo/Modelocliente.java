@@ -134,7 +134,9 @@ public class Modelocliente {
         }
         return llenar_combo;
     }
-
+public void mostrarTabla(){
+    
+}
     public void llenarnuevousuario() {
         Conexion cone = new Conexion();
         Connection cn = cone.iniciarConexion();//instanciamos la conexion
@@ -167,7 +169,7 @@ public class Modelocliente {
     }
     public void windowClosed(WindowEvent e) {
         ControladorPrincipal princi = new ControladorPrincipal();
-        princi.iniciarPrincipal();
+        princi.iniciarPrincipal(1);
    
     }
 }

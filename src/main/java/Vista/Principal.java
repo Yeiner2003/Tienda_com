@@ -48,11 +48,11 @@ public class Principal extends javax.swing.JFrame {
     }
 
     public JTabbedPane getJdprincipal() {
-        return jdprincipal;
+        return jdproducto;
     }
 
     public void setJdprincipal(JTabbedPane jdprincipal) {
-        this.jdprincipal = jdprincipal;
+        this.jdproducto = jdprincipal;
     }
 
     public JTextField getTXTbuscar() {
@@ -87,6 +87,45 @@ public class Principal extends javax.swing.JFrame {
         this.lblnuevo11 = lblnuevo11;
     }
 
+    public JTextField getTxtimg() {
+        return Txtimg;
+    }
+
+    public void setTxtimg(JTextField Txtimg) {
+        this.Txtimg = Txtimg;
+    }
+
+    public JTextField getTxtnom() {
+        return Txtnom;
+    }
+
+    public void setTxtnom(JTextField Txtnom) {
+        this.Txtnom = Txtnom;
+    }
+
+    public JButton getJbGU() {
+        return JbGU;
+    }
+
+    public void setJbGU(JButton JbGU) {
+        this.JbGU = JbGU;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JTextField getTXTbus1() {
+        return TXTbus1;
+    }
+
+    public void setTXTbus1(JTextField TXTbus1) {
+        this.TXTbus1 = TXTbus1;
+    }
 
 
     /**
@@ -100,7 +139,7 @@ public class Principal extends javax.swing.JFrame {
 
         Btlupa = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        jdprincipal = new javax.swing.JTabbedPane();
+        jdproducto = new javax.swing.JTabbedPane();
         jpUsuario = new javax.swing.JPanel();
         lblnuevo = new javax.swing.JButton();
         TXTbuscar = new javax.swing.JTextField();
@@ -108,14 +147,43 @@ public class Principal extends javax.swing.JFrame {
         JTUSUARIO = new javax.swing.JTable();
         jpcliente = new javax.swing.JPanel();
         lblNuevo = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTCliente = new javax.swing.JTable();
         jPproveedor = new javax.swing.JPanel();
         jBproveedorp = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTProveedor = new javax.swing.JTable();
         jPproducto = new javax.swing.JPanel();
         lblnuevo13 = new javax.swing.JButton();
-        jPfactura = new javax.swing.JPanel();
-        lblnuevo12 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTproducto = new javax.swing.JTable();
+        lblnom = new javax.swing.JLabel();
+        Txtnom = new javax.swing.JTextField();
+        lblimg = new javax.swing.JLabel();
+        Txtimg = new javax.swing.JTextField();
+        lbldescripcion = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        panel1 = new javax.swing.JTable();
+        JbGU = new javax.swing.JButton();
+        TXTbus1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         lblnuevo11 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTVentas = new javax.swing.JTable();
+        jPfactura = new javax.swing.JPanel();
+        lblnuevo12 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTFactura = new javax.swing.JTable();
+        lblusuario = new javax.swing.JLabel();
+        Txtusu = new javax.swing.JTextField();
+        lblproveedor = new javax.swing.JLabel();
+        Txtprovee = new javax.swing.JTextField();
+        lbltipopago = new javax.swing.JLabel();
+        JCpago = new javax.swing.JComboBox<>();
+        lblnumerocomprobante = new javax.swing.JLabel();
+        Txtcompro = new javax.swing.JTextField();
+        JBguardar = new javax.swing.JButton();
+        TxtBuscar = new javax.swing.JTextField();
         lbltienda = new javax.swing.JLabel();
 
         Btlupa.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\lupa.png")); // NOI18N
@@ -159,11 +227,8 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(lblnuevo)
                 .addGap(121, 121, 121)
                 .addComponent(TXTbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jpUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 530, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
         );
         jpUsuarioLayout.setVerticalGroup(
             jpUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,10 +242,23 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jdprincipal.addTab("Usuario", jpUsuario);
+        jdproducto.addTab("Usuario", jpUsuario);
 
         lblNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/intimidad.png"))); // NOI18N
         lblNuevo.setText("Nuevo cliente");
+
+        jTCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(jTCliente);
 
         javax.swing.GroupLayout jpclienteLayout = new javax.swing.GroupLayout(jpcliente);
         jpcliente.setLayout(jpclienteLayout);
@@ -188,21 +266,40 @@ public class Principal extends javax.swing.JFrame {
             jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpclienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNuevo)
-                .addContainerGap(535, Short.MAX_VALUE))
+                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpclienteLayout.createSequentialGroup()
+                        .addComponent(lblNuevo)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jpclienteLayout.setVerticalGroup(
             jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpclienteLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lblNuevo)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
-        jdprincipal.addTab("Cliente", jpcliente);
+        jdproducto.addTab("Cliente", jpcliente);
 
         jBproveedorp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/intimidad.png"))); // NOI18N
         jBproveedorp.setText("Nuevo proveedor");
+
+        jTProveedor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane5.setViewportView(jTProveedor);
 
         javax.swing.GroupLayout jPproveedorLayout = new javax.swing.GroupLayout(jPproveedor);
         jPproveedor.setLayout(jPproveedorLayout);
@@ -210,62 +307,136 @@ public class Principal extends javax.swing.JFrame {
             jPproveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPproveedorLayout.createSequentialGroup()
                 .addComponent(jBproveedorp)
-                .addGap(0, 522, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPproveedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPproveedorLayout.setVerticalGroup(
             jPproveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPproveedorLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jBproveedorp)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
-        jdprincipal.addTab("proveedor", jPproveedor);
+        jdproducto.addTab("proveedor", jPproveedor);
 
         lblnuevo13.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\intimidad.png")); // NOI18N
         lblnuevo13.setText("Nuevo");
+
+        jTproducto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(jTproducto);
+
+        lblnom.setText("Nombre");
+
+        lblimg.setText("Imagen");
+
+        lbldescripcion.setText("Descripcion");
+
+        panel1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane7.setViewportView(panel1);
+
+        JbGU.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\disco.png")); // NOI18N
+        JbGU.setText("Guardar");
 
         javax.swing.GroupLayout jPproductoLayout = new javax.swing.GroupLayout(jPproducto);
         jPproducto.setLayout(jPproductoLayout);
         jPproductoLayout.setHorizontalGroup(
             jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPproductoLayout.createSequentialGroup()
-                .addComponent(lblnuevo13)
-                .addGap(0, 579, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPproductoLayout.createSequentialGroup()
+                .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPproductoLayout.createSequentialGroup()
+                        .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblnuevo13)
+                            .addGroup(jPproductoLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblnom, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblimg))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Txtnom)
+                                    .addComponent(Txtimg, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
+                                .addGap(30, 30, 30)
+                                .addComponent(lbldescripcion)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(JbGU)))
+                        .addGap(0, 47, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4)
+                    .addGroup(jPproductoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(TXTbus1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPproductoLayout.setVerticalGroup(
             jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPproductoLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblnuevo13)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPproductoLayout.createSequentialGroup()
+                        .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblnom)
+                            .addComponent(Txtnom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbldescripcion))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Txtimg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblimg)))
+                    .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(JbGU)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
+                .addComponent(TXTbus1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jdprincipal.addTab("Producto", jPproducto);
-
-        lblnuevo12.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\intimidad.png")); // NOI18N
-        lblnuevo12.setText("Nuevo");
-
-        javax.swing.GroupLayout jPfacturaLayout = new javax.swing.GroupLayout(jPfactura);
-        jPfactura.setLayout(jPfacturaLayout);
-        jPfacturaLayout.setHorizontalGroup(
-            jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPfacturaLayout.createSequentialGroup()
-                .addComponent(lblnuevo12)
-                .addGap(0, 579, Short.MAX_VALUE))
-        );
-        jPfacturaLayout.setVerticalGroup(
-            jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPfacturaLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(lblnuevo12)
-                .addContainerGap(205, Short.MAX_VALUE))
-        );
-
-        jdprincipal.addTab("Factura", jPfactura);
+        jdproducto.addTab("Producto", jPproducto);
 
         lblnuevo11.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\intimidad.png")); // NOI18N
         lblnuevo11.setText("Nuevo");
+
+        jTVentas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTVentas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -273,17 +444,130 @@ public class Principal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(lblnuevo11)
-                .addGap(0, 579, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblnuevo11)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
-        jdprincipal.addTab("Ventas", jPanel1);
+        jdproducto.addTab("Ventas", jPanel1);
+
+        lblnuevo12.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\intimidad.png")); // NOI18N
+        lblnuevo12.setText("Nuevo");
+
+        jTFactura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(jTFactura);
+
+        lblusuario.setText("Usuario");
+
+        lblproveedor.setText("Proveedor");
+
+        lbltipopago.setText("Tipo de pago");
+
+        JCpago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione.....", "Efectivo", "Targeta", "Otro" }));
+
+        lblnumerocomprobante.setText("Numero de comprobante");
+
+        JBguardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\disco.png")); // NOI18N
+        JBguardar.setText("Guardar");
+        JBguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBguardarActionPerformed(evt);
+            }
+        });
+
+        TxtBuscar.setFont(new java.awt.Font("Segoe UI Light", 2, 14)); // NOI18N
+        TxtBuscar.setText("Buscar");
+
+        javax.swing.GroupLayout jPfacturaLayout = new javax.swing.GroupLayout(jPfactura);
+        jPfactura.setLayout(jPfacturaLayout);
+        jPfacturaLayout.setHorizontalGroup(
+            jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPfacturaLayout.createSequentialGroup()
+                .addComponent(lblnuevo12)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPfacturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPfacturaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
+                    .addGroup(jPfacturaLayout.createSequentialGroup()
+                        .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPfacturaLayout.createSequentialGroup()
+                                .addComponent(lblproveedor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Txtprovee))
+                            .addGroup(jPfacturaLayout.createSequentialGroup()
+                                .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Txtusu, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblnumerocomprobante)
+                            .addComponent(lbltipopago))
+                        .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPfacturaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Txtcompro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 292, Short.MAX_VALUE))
+                            .addGroup(jPfacturaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JBguardar)
+                                .addGap(17, 17, 17))
+                            .addGroup(jPfacturaLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(JCpago, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+        );
+        jPfacturaLayout.setVerticalGroup(
+            jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPfacturaLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblnuevo12)
+                .addGap(21, 21, 21)
+                .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblusuario)
+                    .addComponent(Txtusu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltipopago)
+                    .addComponent(JCpago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblproveedor, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Txtprovee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblnumerocomprobante)
+                        .addComponent(Txtcompro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBguardar)))
+                .addGap(18, 18, 18)
+                .addComponent(TxtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jdproducto.addTab("Factura", jPfactura);
 
         lbltienda.setForeground(new java.awt.Color(255, 0, 0));
         lbltienda.setText("TIENDA COM");
@@ -296,7 +580,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(lbltienda, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jdprincipal)
+            .addComponent(jdproducto)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,11 +588,15 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbltienda, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jdprincipal))
+                .addComponent(jdproducto))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBguardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBguardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,8 +605,18 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btlupa;
+    private javax.swing.JButton JBguardar;
+    private javax.swing.JComboBox<String> JCpago;
     private javax.swing.JTable JTUSUARIO;
+    private javax.swing.JButton JbGU;
+    private javax.swing.JTextField TXTbus1;
     private javax.swing.JTextField TXTbuscar;
+    private javax.swing.JTextField TxtBuscar;
+    private javax.swing.JTextField Txtcompro;
+    private javax.swing.JTextField Txtimg;
+    private javax.swing.JTextField Txtnom;
+    private javax.swing.JTextField Txtprovee;
+    private javax.swing.JTextField Txtusu;
     private javax.swing.JButton jBproveedorp;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JPanel jPanel1;
@@ -326,15 +624,34 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPproducto;
     private javax.swing.JPanel jPproveedor;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jdprincipal;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTable jTCliente;
+    private javax.swing.JTable jTFactura;
+    private javax.swing.JTable jTProveedor;
+    private javax.swing.JTable jTVentas;
+    private javax.swing.JTable jTproducto;
+    private javax.swing.JTabbedPane jdproducto;
     private javax.swing.JPanel jpUsuario;
     private javax.swing.JPanel jpcliente;
     private javax.swing.JButton lblNuevo;
+    private javax.swing.JLabel lbldescripcion;
+    private javax.swing.JLabel lblimg;
+    private javax.swing.JLabel lblnom;
     private javax.swing.JButton lblnuevo;
     private javax.swing.JButton lblnuevo11;
     private javax.swing.JButton lblnuevo12;
     private javax.swing.JButton lblnuevo13;
+    private javax.swing.JLabel lblnumerocomprobante;
+    private javax.swing.JLabel lblproveedor;
     private javax.swing.JLabel lbltienda;
+    private javax.swing.JLabel lbltipopago;
+    private javax.swing.JLabel lblusuario;
+    private javax.swing.JTable panel1;
     // End of variables declaration//GEN-END:variables
 
 }
