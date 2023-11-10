@@ -160,18 +160,8 @@ public void mostrarTabla(){
         cone.cerrarConexion();
     }
 
-    public void setDefaultCloseOperation(int DISPOSE_ON_CLOSE) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void addWindowListener(WindowAdapter windowAdapter) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public void windowClosed(WindowEvent e) {
-        ControladorPrincipal princi = new ControladorPrincipal();
-        princi.iniciarPrincipal(1);
    
-    }
+  
 }
 
 

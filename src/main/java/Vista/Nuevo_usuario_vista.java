@@ -65,7 +65,13 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
         this.lblnuevousuario = lblnuevousuario;
     }
 
-    
+    public JButton getLblcan() {
+        return lblcan;
+    }
+
+    public void setLblcan(JButton lblcan) {
+        this.lblcan = lblcan;
+    }
 
     public JProgressBar getjProgressBar1() {
         return jProgressBar1;
@@ -99,10 +105,6 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
         this.lbldocumento = lbldocumento;
     }
 
-    
-
-    
-
     public JTextField getTxtcorreo() {
         return txtcorreo;
     }
@@ -127,9 +129,6 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
         this.Txtdocumento = Txtdocumento;
     }
 
- 
-
-   
     public JTextField getTxtnombre() {
         return txtnombre;
     }
@@ -137,8 +136,6 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
     public void setTxtnombre(JTextField txtnombre) {
         this.txtnombre = txtnombre;
     }
-
-   
 
     public JButton getLblgu() {
         return lblguardar;
@@ -167,10 +164,6 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
     public void setCbxtipodocu(JComboBox<String> cbxtipodocu) {
         this.cbxtipodocu = cbxtipodocu;
     }
-    
-    
-   
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -557,7 +550,6 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
     public JComboBox<String> getjComboBox1() {
         return getjComboxrol;
     }
@@ -573,7 +565,7 @@ public class Nuevo_usuario_vista extends javax.swing.JFrame {
     public void setjComboBox2(JComboBox<String> jComboBox2) {
         this.getTxtsexo = jComboBox2;
     }
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Txtdocumento;

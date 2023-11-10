@@ -23,7 +23,7 @@ public class Controlador_proveedor implements ActionListener {
     Nuevo_usuario_vista vista = new Nuevo_usuario_vista();
 
     public Controlador_proveedor() {
-         nuev.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        nuev.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         nuev.addWindowListener(new WindowAdapter() {
             public void windowClosed(WindowEvent e) {
                 ControladorPrincipal princi = new ControladorPrincipal();
@@ -32,7 +32,8 @@ public class Controlador_proveedor implements ActionListener {
 
         });
     }
-        public void llenarproveedor(){
+
+    public void llenarproveedor() {
         prin.setVisible(false);
         nuev.setLocationRelativeTo(null);
         nuev.setVisible(true);
@@ -49,8 +50,11 @@ public class Controlador_proveedor implements ActionListener {
 
         if (e.getSource().equals(nuev.getjBGuardar())) {
             if (nuev.getLblDocumento().getText().isEmpty() || nuev.getLblNombre().getText().isEmpty() || nuev.getLblTelefono().getText().isEmpty() || nuev.getLblDireccion().getText().isEmpty() || nuev.getLblDireccion().getText().isEmpty() || nuev.getjCSexo().getSelectedItem().equals("seleccione...") || nuev.getjDFecha().getDate() == null || nuev.getLbltipoPersona().getText().isEmpty()) {
-           JOptionPane.showMessageDialog(null, "Falta de informacion");
+                JOptionPane.showMessageDialog(null, "Falta de informacion");
 
+            }
+            if (e.getSource().equals(nuev.getjBCancelar())) {
+                nuev.dispose();
             }
         }
     }

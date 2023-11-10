@@ -52,7 +52,8 @@ public class Iniciar_sesion extends javax.swing.JFrame {
     public void setTxtusuario(JTextField txtusuario) {
         this.txtusuario = txtusuario;
     }
-    
+
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,10 +123,10 @@ public class Iniciar_sesion extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(btnOjo)
                         .addGap(32, 32, 32))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(176, 176, 176)
                 .addComponent(btnIniciar1)
-                .addGap(132, 132, 132))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,9 +150,9 @@ public class Iniciar_sesion extends javax.swing.JFrame {
                         .addComponent(lblcontraseña)
                         .addComponent(jpcontra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnOjo))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnIniciar1)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

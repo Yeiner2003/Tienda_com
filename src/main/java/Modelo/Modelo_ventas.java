@@ -145,7 +145,7 @@ public class Modelo_ventas {
             return llenar_combo;
         }
 
-        public void llenarproveedor() throws SQLException {
+        public void Llenarventas() throws SQLException {
             Conexion cone = new Conexion();
             Connection cn = cone.iniciarConexion();//instanciamos la conexion
             String sql = "call ins_usuario (?,?,?,?,?,?)";

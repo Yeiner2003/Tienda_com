@@ -86,15 +86,16 @@ public class Controlador_usuario implements ActionListener {
                 if (us.getjButton1().getText().equals("guardar")) {
                     usu.mostrarTablaUsuario();
                     usu.Limpiar(us.getjButton1().getComponents());
-//                }else{
-//                    us.actualizarUsuario(modUsu.getDoc());
-//                    us.setVisible(false);
-//                    prin.setVisible(true);
-//                    prin.getJdprincipal().setSelectedIndex(1);
-//                    usu . mostrarTablaUsuario ( prin.getJTUSUARIO(), "" , "usuario" );
-//                
+                } else {
+                    us.actualizarUsuario(Rol);
+                    us.setVisible(false);
+                    us.dispose();
+
                 }
             }
+        }
+        if (e.getSource().equals(us.getjButton2())) {
+            us.dispose();
         }
     }
 
@@ -137,12 +138,14 @@ public class Controlador_usuario implements ActionListener {
             us.getjButton1().setText("actualiza");
             us.setVisible(true);
         }
-//           void EliminarUsuario (int doc){
-//        int resp= JOptionPane.showConfirmDialog(null, "¿Desea eliminar al usuario? \n" + doc  , "Eliminar Usuario", JOptionPane.YES_OPTION);
-//            if(resp==JOptionPane.YES_OPTION){
+//       void EliminarUsuario (int doc ){
+//                 int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar al usuario? \n" + doc, "Eliminar Usuario", JOptionPane.YES_OPTION);
+//            if (resp == JOptionPane.YES_OPTION) {
 //                usu.setDoc(doc);
 //                usu.EliminarUsuario();
 //                usu.mostrarTablaUsuario(prin.getJTUSUARIO(), "", "usuario");
-//                            
+//
+//            }
+//        }
     }
 }

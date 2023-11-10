@@ -21,7 +21,7 @@ public class Controlador_Cliente implements ActionListener {
     Modelocliente mod = new Modelocliente();
 
     public Controlador_Cliente() {
-        
+
         nue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         nue.addWindowListener(new WindowAdapter() {
             public void windowClosed(WindowEvent e) {
@@ -45,13 +45,14 @@ public class Controlador_Cliente implements ActionListener {
         }
 
     }
-public void gestionCliente(){
-    
-     int seleccion = prin.getJdprincipal().getSelectedIndex();
+
+    public void gestionCliente() {
+
+        int seleccion = prin.getJdprincipal().getSelectedIndex();
         System.out.println("La pestañaesta en la posició " + seleccion);
         if (seleccion == 1) {
             ModeloUsuario modUsu = new ModeloUsuario();
-            modUsu.mostrarTablaUsuario(prin.getJTUSUARIO(), "","usuario");
+            modUsu.mostrarTablaUsuario(prin.getJTUSUARIO(), "", "usuario");
         }
         ModeloUsuario modUsu = new ModeloUsuario();
         prin.getTXTbuscar().addMouseListener(new MouseAdapter() {
@@ -88,7 +89,8 @@ public void gestionCliente(){
 
             }
         });
-}
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(nue.getjBGuardarC())) {
@@ -107,6 +109,9 @@ public void gestionCliente(){
 //            int sexo = mod.llenarCombo("sexo").get(valorSexo);
 
         }
-    }
+        if (e.getSource().equals(nue.getjBCancelarC())) {
+            nue.dispose();
+        }
 
+    }
 }
