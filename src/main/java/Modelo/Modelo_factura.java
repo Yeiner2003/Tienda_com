@@ -1,9 +1,6 @@
 package Modelo;
 
 import Controlador.Conexion;
-import Controlador.ControladorPrincipal;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -20,30 +17,16 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
-public class Modelocliente {
+public class Modelo_factura {
 
     Conexion cone = new Conexion();
     Connection cn = cone.iniciarConexion();
-
     private int doc, sex, rol;
     private String nom, dir, tec, cor, lo, cl;
     private Date fec;
 
-    public Conexion getCone() {
-        return cone;
-    }
 
-    public void setCone(Conexion cone) {
-        this.cone = cone;
-    }
 
-    public Connection getCn() {
-        return cn;
-    }
-
-    public void setCn(Connection cn) {
-        this.cn = cn;
-    }
 
     public int getDoc() {
         return doc;
@@ -126,7 +109,7 @@ public class Modelocliente {
     }
 
     public Map<String, Integer> llenarCombo() {
-        String sql = "Select * from mostrar sexo";
+        String sql = "Select * from mostrar Ventas";
         Map<String, Integer> llenar_combo = new HashMap<>();
         try {
             Statement st = cn.createStatement();
@@ -140,16 +123,16 @@ public class Modelocliente {
         }
         return llenar_combo;
     }
-public void mostrarTablacliente(JTable tabla, String valor, String nompesta){
+
+    public void mostrarTablaFactura(JTable tabla, String valor, String nompesta) {
         Conexion conect = new Conexion();
         Connection co = conect.iniciarConexion();
-        
-         JTableHeader encabeza = tabla.getTableHeader();
+
+        JTableHeader encabeza = tabla.getTableHeader();
         encabeza.setDefaultRenderer(new Gestion_Encabezado());
         tabla.setTableHeader(encabeza);
         
-        
-        //Personalizar Celdas
+         //Personalizar Celdas
         tabla.setDefaultRenderer(Object.class, new GestionCeldas());
         JButton editar = new JButton();
         JButton eliminar = new JButton();
@@ -158,10 +141,10 @@ public void mostrarTablacliente(JTable tabla, String valor, String nompesta){
         editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png")));
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png")));
 //          eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agregar.png")));
-    
-      String[] titulo = {"Documento", "Sexo", "Nombre","Telefono","Correo", "Direccion", "Fecha de nacimiento"};
+
+        String[] titulo = {"Fecha","Cliente","Usuario","tipoPago","impuestos","total_factura",""};
         int total = titulo.length;
-        if (nompesta.equals("cliente")) {
+        if (nompesta.equals("Factura")) {
 
             titulo = Arrays.copyOf(titulo, titulo.length + 2);
             titulo[titulo.length - 2] = "";
@@ -171,36 +154,36 @@ public void mostrarTablacliente(JTable tabla, String valor, String nompesta){
             titulo = Arrays.copyOf(titulo, titulo.length + 1);
             titulo[titulo.length - 1] = "";
         }
-      
-       DefaultTableModel tablaCliente = new DefaultTableModel(null, titulo) {
+
+        DefaultTableModel tablaFactura = new DefaultTableModel(null, titulo) {
             public boolean isCellEditable(int row, int column) {
 
                 return false;
 
             }
         };
-             String sqlcliente = valor.isEmpty() ? "select * from mostrar_cliente" : "call cliente_cons('" + valor + "')";
+        String sqlfactura= valor.isEmpty() ? "select * from mostrar_factura" : "call factura_cons('" + valor + "')";
 
         try {
             String[] dato = new String[titulo.length];
             Statement st = co.createStatement(); //Crea una consulta
-            ResultSet rs = st.executeQuery(sqlcliente);
+            ResultSet rs = st.executeQuery(sqlfactura);
             while (rs.next()) {
                 for (int i = 0; i < titulo.length - 2; i++) {
                     dato[i] = rs.getString(i + 1);
                 }
-                tablaCliente.addRow(new Object[]{dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],editar,eliminar});
-
+                tablaFactura.addRow(new Object[]{dato[0], dato[1], dato[2], dato[3],dato[4],dato[5],
+                    editar,eliminar});
             }
             co.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        tabla.setModel(tablaCliente);
+        tabla.setModel(tablaFactura);
         //Darle Tamaño a cada Columna
         int cantColum = tabla.getColumnCount();
-        int[] ancho = {100, 180, 100, 150, 100, 160,100,30,30};
+        int[] ancho = {100, 100, 100, 100, 100, 100, 100, 30, 30};
         for (int i = 0; i < cantColum; i++) {
             TableColumn columna = tabla.getColumnModel().getColumn(i);
             columna.setPreferredWidth(ancho[i]);
@@ -208,11 +191,11 @@ public void mostrarTablacliente(JTable tabla, String valor, String nompesta){
         conect.cerrarConexion();
     }
 
-
-    public void llenarnuevocliente() {
+    public void Llenarfactura() throws SQLException {
         Conexion cone = new Conexion();
         Connection cn = cone.iniciarConexion();//instanciamos la conexion
-        String sql = "call ins_cliente (?,?,?,?,?,?,?,)";
+        String sql = "call ins_factura(?,?,?,?,?,?)";
+
         try {
             PreparedStatement ps = cn.prepareStatement(sql);
             ps.setInt(1, getDoc());
@@ -232,9 +215,4 @@ public void mostrarTablacliente(JTable tabla, String valor, String nompesta){
         cone.cerrarConexion();
     }
 
-   
-  
 }
-
-
-

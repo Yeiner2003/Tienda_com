@@ -38,10 +38,10 @@ public class Controlador_proveedor implements ActionListener {
         nuev.setLocationRelativeTo(null);
         nuev.setVisible(true);
         nuev.getjCSexo().addItem("seleccione");
-        Map<String, Integer> dato = prov.llenarCombo("sexo");
-        for (String sexo : dato.keySet()) {
-            nuev.getjCSexo().addItem(sexo);
-        }
+////        Map<String, Integer> dato = prov.llenarCombo("sexo");
+//        for (String sexo : dato.keySet()) {
+//            nuev.getjCSexo().addItem(sexo);
+//        }
 
     }
 

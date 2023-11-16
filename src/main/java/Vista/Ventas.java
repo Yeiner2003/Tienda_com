@@ -110,7 +110,7 @@ public class Ventas extends javax.swing.JPanel {
     public void setTxtproducto(JTextField txtproducto) {
         this.txtproducto = txtproducto;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -261,7 +261,7 @@ public class Ventas extends javax.swing.JPanel {
     private javax.swing.JTextField txtproducto;
     // End of variables declaration//GEN-END:variables
 
-    public void setDefaultCloseOperation(int DISPOSE_ON_CLOSE) {
+    public void setLocationRelativeTo(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -269,7 +269,8 @@ public class Ventas extends javax.swing.JPanel {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setLocationRelativeTo(Object object) {
+    public void setDefaultCloseOperation(int DISPOSE_ON_CLOSE) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }

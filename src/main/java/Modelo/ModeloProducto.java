@@ -28,6 +28,7 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 
 public class ModeloProducto {
 
@@ -68,18 +69,18 @@ public class ModeloProducto {
         this.imagen = imagen;
     }
 
-    public void buscarImagen() {
-        JFileChooser archivos = new JFileChooser();
-        String rutacarpeta = getClass().getClassLoader().getResource("imgProductos").getPath();
-        File carpeta = new File(rutacarpeta);
-        archivos.setCurrentDirectory(carpeta);
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JGP, PNG & GIF", "jpg", "png", "gif");
-
-        archivos.setFileFilter(filtro);
-        if (archivos.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            setRuta(archivos.getSelectedFile().getAbsolutePath());
-        }
-    }
+//    public void buscarImagen() {
+//        JFileChooser archivos = new JFileChooser();
+//        String rutacarpeta = getClass().getClassLoader().getResource("imgProductos").getPath();
+//        File carpeta = new File(rutacarpeta);
+//        archivos.setCurrentDirectory(carpeta);
+//        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JGP, PNG & GIF", "jpg", "png", "gif");
+//
+//        archivos.setFileFilter(filtro);
+//        if (archivos.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+//            setRuta(archivos.getSelectedFile().getAbsolutePath());
+//        }
+//    }
 
     public byte[] ObtenerImagen(String ruta) {
         try {
@@ -91,10 +92,77 @@ public class ModeloProducto {
             return foto;
 
         } catch (Exception e) {
+
             return null;
         }
     }
 
+  public void mostrarTablaProducto(JTable tabla, String valor, String nompesta){
+        Conexion conect = new Conexion();
+        Connection co = conect.iniciarConexion();
+        
+         JTableHeader encabeza = tabla.getTableHeader();
+        encabeza.setDefaultRenderer(new Gestion_Encabezado());
+        tabla.setTableHeader(encabeza);
+        
+        
+        //Personalizar Celdas
+        tabla.setDefaultRenderer(Object.class, new GestionCeldas());
+        JButton editar = new JButton();
+        JButton eliminar = new JButton();
+//         JButton agregar = new JButton();
+
+        editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png")));
+        eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png")));
+//          eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agregar.png")));
+    
+      String[] titulo = {"idProducto","nombre","descripcion","cantidad","imagen","precio",""};
+        int total = titulo.length;
+        if (nompesta.equals("proveedor")) {
+
+            titulo = Arrays.copyOf(titulo, titulo.length + 2);
+            titulo[titulo.length - 2] = "";
+            titulo[titulo.length - 1] = "";
+
+        } else {
+            titulo = Arrays.copyOf(titulo, titulo.length + 1);
+            titulo[titulo.length - 1] = "";
+        }
+      
+       DefaultTableModel tablaProducto = new DefaultTableModel(null, titulo) {
+            public boolean isCellEditable(int row, int column) {
+
+                return false;
+
+            }
+        };
+             String sqlproveedor = valor.isEmpty() ? "SELECT * FROM mostrarproducto" : "call producto_cons('" + valor + "')";
+
+        try {
+            String[] dato = new String[titulo.length];
+            Statement st = co.createStatement(); //Crea una consulta
+            ResultSet rs = st.executeQuery(sqlproveedor);
+            while (rs.next()) {
+                for (int i = 0; i < titulo.length - 2; i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                tablaProducto.addRow(new Object[]{dato[0], dato[1], dato[2], dato[3], dato[4],dato[5], editar, eliminar});
+            }
+            co.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        tabla.setModel(tablaProducto);
+        //Darle Tamaño a cada Columna
+        int cantColum = tabla.getColumnCount();
+        int[] ancho = {100, 100, 100, 100,100,100,30,30};
+        for (int i = 0; i < cantColum; i++) {
+            TableColumn columna = tabla.getColumnModel().getColumn(i);
+            columna.setPreferredWidth(ancho[i]);
+        }
+        conect.cerrarConexion();
+    }
     public void limpiar(Component[] panel) {
         for (Object control : panel) {
             if (control instanceof JTextField) {
@@ -149,7 +217,7 @@ public class ModeloProducto {
         }
     }
 
-    public void mostrarTablaProducto(JTable tabla, String valor, String nompesta) throws SQLException, IOException {
+    public void mostrarTablaProducto1(JTable tabla, String valor, String nompesta) throws SQLException, IOException {
         Conexion conect = new Conexion();
         Connection cn = conect.iniciarConexion();
 

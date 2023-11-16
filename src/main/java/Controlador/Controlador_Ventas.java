@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.Modelo_ventas;
 import Vista.Principal;
 import Vista.Ventas;
+import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -20,7 +21,7 @@ public class Controlador_Ventas {
             public void windowClosed(WindowEvent e) {
                 ControladorPrincipal princi = new ControladorPrincipal();
                 princi.iniciarPrincipal(1);
-                
+
             }
 
         });
@@ -31,12 +32,11 @@ public class Controlador_Ventas {
         ven.setLocationRelativeTo(null);
         ven.setVisible(true);
 
-    
+        if (e.getSource().equals(prin.getjBventas())) {
+            if (ven.getTxtproducto().getText().isEmpty() || ven.getjCtipodepago().getSelectedItem().equals("Seleccionar...") || ven.getTxtdescripcion().getText().isEmpty() || ven.getTxtDocumento().getText().isEmpty());
+            JOptionPane.showMessageDialog(null, "Falta de informacion");
 
-         if (e.getSource().equals(prin.getLblnuevo11())) {
-            if (ven.getTxtproducto().getText().isEmpty()|| ven.getjCtipodepago().getSelectedItem().equals("Seleccionar...")|| ven.getTxtdescripcion().getText().isEmpty() || ven.getTxtDocumento().getText().isEmpty()); 
-           JOptionPane.showMessageDialog(null, "Falta de informacion");
-
-            }
         }
     }
+
+}

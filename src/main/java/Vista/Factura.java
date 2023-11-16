@@ -4,17 +4,119 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author SENA
  */
-public class Factura extends javax.swing.JPanel {
+public class Factura extends javax.swing.JFrame {
 
     /**
      * Creates new form Factura
      */
     public Factura() {
         initComponents();
+    }
+
+    public JComboBox<String> getJCseleccionar() {
+        return JCseleccionar;
+    }
+
+    public void setJCseleccionar(JComboBox<String> JCseleccionar) {
+        this.JCseleccionar = JCseleccionar;
+    }
+
+    public JTextField getTxtUsuario() {
+        return TxtUsuario;
+    }
+
+    public void setTxtUsuario(JTextField TxtUsuario) {
+        this.TxtUsuario = TxtUsuario;
+    }
+
+    public JTextField getTxtdescuento() {
+        return Txtdescuento;
+    }
+
+    public void setTxtdescuento(JTextField Txtdescuento) {
+        this.Txtdescuento = Txtdescuento;
+    }
+
+    public JTextField getTxtfactura() {
+        return Txtfactura;
+    }
+
+    public void setTxtfactura(JTextField Txtfactura) {
+        this.Txtfactura = Txtfactura;
+    }
+
+    public JButton getjBCancelarf() {
+        return jBCancelarf;
+    }
+
+    public void setjBCancelarf(JButton jBCancelarf) {
+        this.jBCancelarf = jBCancelarf;
+    }
+
+    public JButton getjBGuardarf() {
+        return jBGuardarf;
+    }
+
+    public void setjBGuardarf(JButton jBGuardarf) {
+        this.jBGuardarf = jBGuardarf;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JLabel getLblTipodepago() {
+        return lblTipodepago;
+    }
+
+    public void setLblTipodepago(JLabel lblTipodepago) {
+        this.lblTipodepago = lblTipodepago;
+    }
+
+    public JLabel getLbldescuento() {
+        return lbldescuento;
+    }
+
+    public void setLbldescuento(JLabel lbldescuento) {
+        this.lbldescuento = lbldescuento;
+    }
+
+    public JLabel getLbldocusuario() {
+        return lbldocusuario;
+    }
+
+    public void setLbldocusuario(JLabel lbldocusuario) {
+        this.lbldocusuario = lbldocusuario;
+    }
+
+    public JLabel getLblfactura() {
+        return lblfactura;
+    }
+
+    public void setLblfactura(JLabel lblfactura) {
+        this.lblfactura = lblfactura;
     }
 
     /**
@@ -78,33 +180,34 @@ public class Factura extends javax.swing.JPanel {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(lblfactura))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(lbldocusuario)
-                            .addComponent(lblTipodepago)
-                            .addComponent(lbldescuento))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbldescuento)
+                                .addComponent(lblTipodepago)))
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JCseleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Txtdescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(JCseleccionar, 0, 162, Short.MAX_VALUE)
-                                .addComponent(Txtfactura, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Txtfactura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                                 .addComponent(TxtUsuario, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(lblfactura)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,17 +222,17 @@ public class Factura extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbldocusuario)
                     .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTipodepago)
                     .addComponent(JCseleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbldescuento)
-                    .addComponent(Txtdescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Txtdescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbldescuento))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
