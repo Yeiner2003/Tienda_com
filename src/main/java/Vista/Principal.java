@@ -168,6 +168,38 @@ public class Principal extends javax.swing.JFrame {
         this.jTproducto = jTproducto;
     }
 
+    public JTable getjTCliente() {
+        return jTCliente;
+    }
+
+    public void setjTCliente(JTable jTCliente) {
+        this.jTCliente = jTCliente;
+    }
+
+    public JTable getjTFactura() {
+        return jTFactura;
+    }
+
+    public void setjTFactura(JTable jTFactura) {
+        this.jTFactura = jTFactura;
+    }
+
+    public JTable getjTProveedor() {
+        return jTProveedor;
+    }
+
+    public void setjTProveedor(JTable jTProveedor) {
+        this.jTProveedor = jTProveedor;
+    }
+
+    public JTable getjTVentas() {
+        return jTVentas;
+    }
+
+    public void setjTVentas(JTable jTVentas) {
+        this.jTVentas = jTVentas;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -202,16 +234,6 @@ public class Principal extends javax.swing.JFrame {
         lblnuevo12 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTFactura = new javax.swing.JTable();
-        lblusuario = new javax.swing.JLabel();
-        Txtusu = new javax.swing.JTextField();
-        lblproveedor = new javax.swing.JLabel();
-        Txtprovee = new javax.swing.JTextField();
-        lbltipopago = new javax.swing.JLabel();
-        JCpago = new javax.swing.JComboBox<>();
-        lblnumerocomprobante = new javax.swing.JLabel();
-        Txtcompro = new javax.swing.JTextField();
-        JBguardar = new javax.swing.JButton();
-        TxtBuscar = new javax.swing.JTextField();
         jPproducto = new javax.swing.JPanel();
         lblnuevo13 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -349,11 +371,11 @@ public class Principal extends javax.swing.JFrame {
             jPproveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPproveedorLayout.createSequentialGroup()
                 .addComponent(jBproveedorp)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 791, Short.MAX_VALUE))
             .addGroup(jPproveedorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane5)
+                .addContainerGap())
         );
         jPproveedorLayout.setVerticalGroup(
             jPproveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -422,94 +444,23 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTFactura);
 
-        lblusuario.setText("Usuario");
-
-        lblproveedor.setText("Proveedor");
-
-        lbltipopago.setText("Tipo de pago");
-
-        JCpago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione.....", "Efectivo", "Targeta", "Otro" }));
-
-        lblnumerocomprobante.setText("Numero de comprobante");
-
-        JBguardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Documents\\NetBeansProjects\\tienda_com\\src\\main\\resources\\img\\disco.png")); // NOI18N
-        JBguardar.setText("Guardar");
-        JBguardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBguardarActionPerformed(evt);
-            }
-        });
-
-        TxtBuscar.setFont(new java.awt.Font("Segoe UI Light", 2, 14)); // NOI18N
-        TxtBuscar.setText("Buscar");
-
         javax.swing.GroupLayout jPfacturaLayout = new javax.swing.GroupLayout(jPfactura);
         jPfactura.setLayout(jPfacturaLayout);
         jPfacturaLayout.setHorizontalGroup(
             jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPfacturaLayout.createSequentialGroup()
                 .addComponent(lblnuevo12)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPfacturaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPfacturaLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addContainerGap())
-                    .addGroup(jPfacturaLayout.createSequentialGroup()
-                        .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPfacturaLayout.createSequentialGroup()
-                                .addComponent(lblproveedor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Txtprovee))
-                            .addGroup(jPfacturaLayout.createSequentialGroup()
-                                .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Txtusu, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblnumerocomprobante)
-                            .addComponent(lbltipopago))
-                        .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPfacturaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Txtcompro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 292, Short.MAX_VALUE))
-                            .addGroup(jPfacturaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(JBguardar)
-                                .addGap(17, 17, 17))
-                            .addGroup(jPfacturaLayout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(JCpago, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGap(0, 848, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
         );
         jPfacturaLayout.setVerticalGroup(
             jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPfacturaLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblnuevo12)
-                .addGap(21, 21, 21)
-                .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblusuario)
-                    .addComponent(Txtusu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbltipopago)
-                    .addComponent(JCpago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblproveedor, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPfacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Txtprovee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblnumerocomprobante)
-                        .addComponent(Txtcompro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(JBguardar)))
-                .addGap(18, 18, 18)
-                .addComponent(TxtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         jdproducto.addTab("Factura", jPfactura);
@@ -582,22 +533,26 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPproductoLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblnuevo13)
-                .addGap(23, 23, 23)
                 .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPproductoLayout.createSequentialGroup()
-                        .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblnom)
-                            .addComponent(Txtnom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbldescripcion))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblimg)
-                            .addComponent(Txtimg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JBimg)))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPproductoLayout.createSequentialGroup()
+                                .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblnom)
+                                    .addComponent(Txtnom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbldescripcion))
+                                .addGap(34, 34, 34)
+                                .addGroup(jPproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblimg)
+                                    .addComponent(Txtimg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JBimg)))
+                            .addGroup(jPproductoLayout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(JbGU))))
                     .addGroup(jPproductoLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(JbGU))
-                    .addComponent(JSdescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addComponent(JSdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
                 .addComponent(TXTbus1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -632,10 +587,6 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBguardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBguardarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -643,21 +594,15 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btlupa;
-    private javax.swing.JButton JBguardar;
     private javax.swing.JButton JBimg;
-    private javax.swing.JComboBox<String> JCpago;
     private javax.swing.JScrollPane JSdescripcion;
     private javax.swing.JTable JTUSUARIO;
     private javax.swing.JButton JbGU;
     private javax.swing.JTextField TXTbus1;
     private javax.swing.JTextField TXTbuscar;
     private javax.swing.JTextPane TXTdescrip;
-    private javax.swing.JTextField TxtBuscar;
-    private javax.swing.JTextField Txtcompro;
     private javax.swing.JTextField Txtimg;
     private javax.swing.JTextField Txtnom;
-    private javax.swing.JTextField Txtprovee;
-    private javax.swing.JTextField Txtusu;
     private javax.swing.JButton jBproveedorp;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JPanel jPanel1;
@@ -686,11 +631,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton lblnuevo11;
     private javax.swing.JButton lblnuevo12;
     private javax.swing.JButton lblnuevo13;
-    private javax.swing.JLabel lblnumerocomprobante;
-    private javax.swing.JLabel lblproveedor;
     private javax.swing.JLabel lbltienda;
-    private javax.swing.JLabel lbltipopago;
-    private javax.swing.JLabel lblusuario;
     // End of variables declaration//GEN-END:variables
 
 }

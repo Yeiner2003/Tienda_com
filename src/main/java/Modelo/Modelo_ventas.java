@@ -11,9 +11,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 //import javax.swing.JButton;
 //import javax.swing.JComboBox;
 //import javax.swing.JOptionPane;
@@ -145,6 +150,63 @@ public class Modelo_ventas {
             return llenar_combo;
         }
 
+    public void mostrarTablaVentas(JTable tabla, String valor, String nompesta){
+        Conexion conect = new Conexion();
+        Connection co = conect.iniciarConexion();
+        
+         JTableHeader encabeza = tabla.getTableHeader();
+        encabeza.setDefaultRenderer(new Gestion_Encabezado());
+        tabla.setTableHeader(encabeza);
+    
+      String[] titulo = {"Tipo de pago", "Nombre del producto", "Descripcion del Producto", "Documento del cliente"};
+      int total = titulo.length;
+        if (nompesta.equals("ventas")) {
+
+            titulo = Arrays.copyOf(titulo, titulo.length + 2);
+            titulo[titulo.length - 2] = "";
+            titulo[titulo.length - 1] = "";
+            
+             } else {
+            titulo = Arrays.copyOf(titulo, titulo.length + 1);
+            titulo[titulo.length - 1] = "";
+        }
+
+      
+       DefaultTableModel tablaVentas = new DefaultTableModel(null, titulo) {
+            public boolean isCellEditable(int row, int column) {
+
+                return false;
+
+            }
+        };
+         String sqlventas = valor.isEmpty() ? "select * from mostrar_ventas" : "call ventas_cons('" + valor + "')";
+
+        try {
+            String[] dato = new String[titulo.length];
+            Statement st = co.createStatement(); //Crea una consulta
+            ResultSet rs = st.executeQuery(sqlventas);
+            while (rs.next()) {
+                for (int i = 0; i < titulo.length - 2; i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                tablaVentas.addRow(new Object[]{dato[0], dato[1], dato[2], dato[3], dato[4]});
+            }
+            co.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        tabla.setModel(tablaVentas);
+        //Darle Tamaño a cada Columna
+        int cantColum = tabla.getColumnCount();
+        int[] ancho = {100, 180, 100, 150, 100};
+        for (int i = 0; i < cantColum; i++) {
+            TableColumn columna = tabla.getColumnModel().getColumn(i);
+            columna.setPreferredWidth(ancho[i]);
+        }
+        conect.cerrarConexion();
+    }
+    
         public void Llenarventas() throws SQLException {
             Conexion cone = new Conexion();
             Connection cn = cone.iniciarConexion();//instanciamos la conexion

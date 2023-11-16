@@ -3,7 +3,10 @@ package Controlador;
 //import Modelo.ModeloUsuario;
 import Modelo.ModeloProducto;
 import Modelo.ModeloUsuario;
+import Modelo.Modelo_factura;
+import Modelo.Modelo_ventas;
 import Modelo.Modelocliente;
+import Modelo.Modeloproveedor;
 import Vista.Nuevo_Cliente;
 import Vista.Nuevo_usuario_vista;
 import Vista.P;
@@ -26,11 +29,11 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-//import javax.swing.event.DocumentEvent;
-//import javax.swing.event.DocumentListener;
+
 
 public class ControladorPrincipal implements ActionListener, ChangeListener, DocumentListener {
 
+    Modeloproveedor mop = new Modeloproveedor();
     ModeloUsuario modUsu = new ModeloUsuario();
     Ventas ven = new Ventas();
     P nuev = new P();
@@ -40,7 +43,7 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
     Producto pro = new Producto();
     ModeloProducto modProd = new ModeloProducto();
     Modelocliente modCli = new Modelocliente();
-//    Modelo_ventas ven = new modelo_ventas()
+    Modelo_factura fac = new Modelo_factura();
 
     public ControladorPrincipal() {
         prin.getLblnuevo13().addActionListener(this);
@@ -53,6 +56,7 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
         nue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         nuev.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         prin.getJdprincipal().addChangeListener(this);
+        
     }
 
     public void iniciarPrincipal(int valor) {
@@ -64,21 +68,30 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
         prin.getJdprincipal().setSelectedIndex(valor);
         prin.setVisible(true);
         gestionCliente();
-       
-    }
-    public void gestionCliente(){
-        
+
     }
 
+    public void gestionCliente() {
+        modCli.mostrarTablacliente(prin.getjTCliente(), "", "cliente");
+
+    }
     
+    
+    public void gestionProducto() {
+        modProd.mostrarTablaProducto(prin.getjTproducto(), "", "producto");
+
+    }
+
+
+    public void gestionProveedor() {
+        mop.mostrarTablaProveedor(prin.getjTProveedor(), "", "proveedor");
+
+    }
 
     public void gestionUsuario() {
-        int seleccion = prin.getJdprincipal().getSelectedIndex();
-        System.out.println("La pestañaesta en la posició " + seleccion);
-        if (seleccion == 1) {
-            ModeloUsuario modUsu = new ModeloUsuario();
-            modUsu.mostrarTablaUsuario(prin.getJTUSUARIO(), "", "usuario");
-        }
+        ModeloUsuario modUsu = new ModeloUsuario();
+        modUsu.mostrarTablaUsuario(prin.getJTUSUARIO(), "", "usuario");
+
 //        ModeloUsuario modUsu = new ModeloUsuario();
         prin.getTXTbuscar().addMouseListener(new MouseAdapter() {
             public void MouseClickd(MouseEvent e) {
@@ -134,7 +147,8 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
             modProd.setImagen(modProd.ObtenerImagen(modProd.getRuta()));
         }
     }
-         public void limpiar(Component[] panel) {
+
+    public void limpiar(Component[] panel) {
         for (Object control : panel) {
             if (control instanceof JTextField) {
                 ((JTextField) control).setText("");
@@ -151,22 +165,24 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
         }
     }
 
-  
-
     @Override
     public void stateChanged(ChangeEvent e) {
         int seleccion = prin.getJdprincipal().getSelectedIndex();
-        System.out.println("La pestañaesta en la posició " + seleccion);
-        if (seleccion == 1) {
-            ModeloUsuario modUsu = new ModeloUsuario();
-            modUsu.mostrarTablaUsuario(prin.getJTUSUARIO(), "", "usuario");
+        if (seleccion == 0) {
+            gestionUsuario();
         }
-        ModeloUsuario modUsu = new ModeloUsuario();
-        prin.getTXTbuscar().addMouseListener(new MouseAdapter() {
-            public void MouseClickd(MouseAdapter e) {
-                prin.getTXTbuscar().setText("color BLACK");
-            }
-        });
+        if (seleccion == 1) {
+            gestionCliente();
+        }
+         if (seleccion == 2) {
+            gestionProveedor();
+        }
+       
+         if (seleccion == 5) {
+            gestionProducto();
+        }  
+      
+
 
         prin.getJTUSUARIO().addMouseListener(new MouseAdapter() {
             @Override
@@ -201,4 +217,4 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
         modUsu.mostrarTablaUsuario(prin.getJTUSUARIO(), prin.getTXTbuscar().getText(), "usuario");
     }
 
-        }
+}

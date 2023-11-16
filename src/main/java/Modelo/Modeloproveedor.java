@@ -9,13 +9,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 
 public class Modeloproveedor {
 
-    public class Modelocliente {
+   
 
         Conexion cone = new Conexion();
         Connection cn = cone.iniciarConexion();
@@ -136,10 +142,79 @@ public class Modeloproveedor {
             return llenar_combo;
         }
 
+      public void mostrarTablaProveedor(JTable tabla, String valor, String nompesta){
+        Conexion conect = new Conexion();
+        Connection co = conect.iniciarConexion();
+        
+         JTableHeader encabeza = tabla.getTableHeader();
+        encabeza.setDefaultRenderer(new Gestion_Encabezado());
+        tabla.setTableHeader(encabeza);
+        
+        
+        //Personalizar Celdas
+        tabla.setDefaultRenderer(Object.class, new GestionCeldas());
+        JButton editar = new JButton();
+        JButton eliminar = new JButton();
+//         JButton agregar = new JButton();
+
+        editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png")));
+        eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png")));
+//          eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agregar.png")));
+    
+      String[] titulo = {"idproveedor","sexo","nit","nombre","dirreccion","telefono","correo","persona","nacimiento"};
+        int total = titulo.length;
+        if (nompesta.equals("proveedor")) {
+
+            titulo = Arrays.copyOf(titulo, titulo.length + 2);
+            titulo[titulo.length - 2] = "";
+            titulo[titulo.length - 1] = "";
+
+        } else {
+            titulo = Arrays.copyOf(titulo, titulo.length + 1);
+            titulo[titulo.length - 1] = "";
+        }
+      
+       DefaultTableModel tablaProveedor = new DefaultTableModel(null, titulo) {
+            public boolean isCellEditable(int row, int column) {
+
+                return false;
+
+            }
+        };
+             String sqlproveedor = valor.isEmpty() ? "SELECT * FROM mostrar_proveedor" : "call proveedor_cons('" + valor + "')";
+
+        try {
+            String[] dato = new String[titulo.length];
+            Statement st = co.createStatement(); //Crea una consulta
+            ResultSet rs = st.executeQuery(sqlproveedor);
+            while (rs.next()) {
+                for (int i = 0; i < titulo.length - 2; i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                tablaProveedor.addRow(new Object[]{dato[0], dato[1], dato[2], dato[3], dato[4], dato[5], dato[6], dato[7], dato[8], editar, eliminar});
+            }
+            co.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        tabla.setModel(tablaProveedor);
+        //Darle Tamaño a cada Columna
+        int cantColum = tabla.getColumnCount();
+        int[] ancho = {100, 180, 100, 150, 100, 160, 100,100,100,50,50};
+        for (int i = 0; i < cantColum; i++) {
+            TableColumn columna = tabla.getColumnModel().getColumn(i);
+            columna.setPreferredWidth(ancho[i]);
+        }
+        conect.cerrarConexion();
+    }
+
+
+
         public void llenarproveedor() throws SQLException {
             Conexion cone = new Conexion();
             Connection cn = cone.iniciarConexion();//instanciamos la conexion
-            String sql = "call ins_usuario (?,?,?,?,?,?)";
+            String sql = "call ins_proveedor (?,?,?,?,?,?)";
 
             try {
                 PreparedStatement ps = cn.prepareStatement(sql);
@@ -162,12 +237,4 @@ public class Modeloproveedor {
 
     }
 
-    public Map<String, Integer> llenarCombo(String sexo) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-public void windowClosed(WindowEvent e) {
-        ControladorPrincipal princi = new ControladorPrincipal();
-        princi.iniciarPrincipal(1);
-   
-    }
-}
+
