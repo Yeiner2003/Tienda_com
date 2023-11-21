@@ -2,7 +2,6 @@ package Modelo;
 
 import Controlador.Conexion;
 import Vista.Principal;
-import Vista.Principal1;
 import java.awt.Component;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -33,7 +32,7 @@ import javax.swing.table.TableColumn;
 
 public class ModeloProducto {
 
-    Principal1 prin = new Principal1();
+    Principal prin = new Principal();
 
     private String nom, des, ruta;
     private byte imagen[];

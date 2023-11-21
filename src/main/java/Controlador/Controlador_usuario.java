@@ -3,7 +3,7 @@ package Controlador;
 import Modelo.ModeloUsuario;
 import Vista.Nuevo_usuario_vista;
 import Vista.Principal;
-import Vista.Principal1;
+import Vista.Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class Controlador_usuario implements ActionListener {
 
     Nuevo_usuario_vista us = new Nuevo_usuario_vista();
-    Principal1 prin = new Principal1();
+    Principal prin = new Principal();
     ModeloUsuario usu = new ModeloUsuario();
 
     public Controlador_usuario() {
@@ -75,8 +75,6 @@ public class Controlador_usuario implements ActionListener {
                 usu.setDoc(Integer.parseInt(us.getTxtdocumento().getText()));
                 usu.setNom(us.getTxtnombre().getText());
                 usu.setFec(fecha);
-                usu.setNom(us.getTxtnombre().getText());
-                usu.setFec(fecha);
                 usu.setDir(us.getTxtdireccion().getText());
                 usu.setTec(us.getTxttelefono().getText());
                 usu.setCor(us.getTxtcorreo().getText());
@@ -84,19 +82,33 @@ public class Controlador_usuario implements ActionListener {
                 usu.setCl(us.getLblclave().getText());
                 usu.setSex(sexo);
                 usu.setRol(Rol);
-                if (us.getjButton1().getText().equals("guardar")) {
-                    usu.mostrarTablaUsuario();
-                    usu.Limpiar(us.getjButton1().getComponents());
-                } else {
-                    us.actualizarUsuario(Rol);
-                    us.setVisible(false);
-                    us.dispose();
+                usu.setLo(us.getTxtLogin().getText());
+                usu.setCl(contraseña);
+                
+                
+                
+                ControladorPrincipal con = new ControladorPrincipal();
+                if (con.Ingresarcorreo(us.getTxtcorreo().getText())) {
+                    
+                    
+                    
+                    if (us.getjButton1().getText().equals("guardar")) {
+                        usu.mostrarTablaUsuario();
+                        usu.Limpiar(us.getjButton1().getComponents());
+                    } else {
 
+                        JOptionPane.showInputDialog(null, "Error");
+
+                        us.actualizarUsuario(Rol);
+                        us.setVisible(false);
+                        us.dispose();
+
+                    }
                 }
             }
-        }
-        if (e.getSource().equals(us.getjButton2())) {
-            us.dispose();
+            if (e.getSource().equals(us.getjButton2())) {
+                us.dispose();
+            }
         }
     }
 

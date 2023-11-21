@@ -5,7 +5,7 @@ import Modelo.Modeloproveedor;
 import Vista.Nuevo_usuario_vista;
 import Vista.P;
 import Vista.Principal;
-import Vista.Principal1;
+import Vista.Principal;
 //import Vista.Proveedor_nuevo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 public class Controlador_proveedor implements ActionListener {
 
     P nuev = new P();
-    Principal1 prin = new Principal1();
+    Principal prin = new Principal();
     Modeloproveedor prov = new Modeloproveedor();
     Nuevo_usuario_vista vista = new Nuevo_usuario_vista();
 

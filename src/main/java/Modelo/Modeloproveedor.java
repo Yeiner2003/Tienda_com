@@ -1,8 +1,6 @@
 package Modelo;
 
 import Controlador.Conexion;
-import Controlador.ControladorPrincipal;
-import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

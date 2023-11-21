@@ -4,7 +4,6 @@ import Modelo.ModeloUsuario;
 import Modelo.Modelocliente;
 import Vista.Nuevo_Cliente;
 import Vista.Principal;
-import Vista.Principal1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -18,7 +17,7 @@ import javax.swing.JOptionPane;
 public class Controlador_Cliente implements ActionListener {
 
     Nuevo_Cliente nue = new Nuevo_Cliente();
-    Principal1 prin = new Principal1();
+    Principal prin = new Principal();
     Modelocliente mod = new Modelocliente();
 
     public Controlador_Cliente() {

@@ -2,7 +2,6 @@ package Controlador;
 
 import Modelo.Modelo_ventas;
 import Vista.Principal;
-import Vista.Principal1;
 import Vista.Ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
@@ -14,7 +13,7 @@ public class Controlador_Ventas {
 
     Ventas ven = new Ventas();
     Modelo_ventas mov = new Modelo_ventas();
-    Principal1 prin = new Principal1();
+    Principal prin = new Principal();
 
     public Controlador_Ventas() {
         ven.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

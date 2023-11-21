@@ -10,12 +10,11 @@ import Modelo.Modeloproveedor;
 
 import Vista.Factura;
 
-
 import Vista.Nuevo_Cliente;
 import Vista.Nuevo_producto;
 import Vista.Nuevo_usuario_vista;
 import Vista.P;
-//import Vista.Principal;
+import Vista.Principal;
 import Vista.Producto;
 import Vista.Ventas;
 import java.awt.Color;
@@ -24,25 +23,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-
 public class ControladorPrincipal implements ActionListener, ChangeListener, DocumentListener {
-
-
 
     Modeloproveedor mop = new Modeloproveedor();
     ModeloUsuario modUsu = new ModeloUsuario();
@@ -58,9 +50,6 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
     Modelo_ventas vent = new Modelo_ventas();
     Factura fact = new Factura();
     Nuevo_producto nvp = new Nuevo_producto();
-    
-    
-    
 
     public ControladorPrincipal() {
         prin.getJdprincipal().addChangeListener(this);
@@ -78,10 +67,8 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
 
         nvp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-
         prin.getJdprincipal().addChangeListener(this);
     }
-    
 
     public void iniciarPrincipal(int valor) {
         prin.setLocationRelativeTo(null);
@@ -100,13 +87,13 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
 
     }
 
-     public void gestionFactura() {
-     fac.mostrarTablaFactura(prin.getjTFactura(), "", "factura");
+//    public void gestionFactura() {
+//        fac.mostrarTablaFactura(prin.getjTFactura(), "", "factura");
 
-    }
+//    }
 
     public void gestionVentas() {
-       vent.mostrarTablaVentas(prin.getjTVentas(), "", "ventas");
+        vent.mostrarTablaVentas(prin.getjTVentas(), "", "ventas");
 
     }
 
@@ -114,7 +101,6 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
         modProd.mostrarTablaProducto(prin.getjTproducto(), "", "producto");
 
     }
-
 
     public void gestionProveedor() {
         mop.mostrarTablaProveedor(prin.getjTProveedor(), "", "proveedor");
@@ -164,20 +150,19 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
             con.llenarproveedor();
 
         }
-       if (e.getSource().equals(prin.getjBproducto())) {
+        if (e.getSource().equals(prin.getjBproducto())) {
             Controlador_Producto con = new Controlador_Producto();
             con.llenarProducto();
-       }
-        if (e.getSource().equals(prin.getjBFactura())) {
-            Controlador_factura con = new Controlador_factura();
-            con.llenarFactura();
-       }
-          if (e.getSource().equals(prin.getjBventas())) {
+        }
+//        if (e.getSource().equals(prin.getjBFactura())) {
+//            Controlador_factura con = new Controlador_factura();
+//            con.llenarFactura();
+//        }
+        if (e.getSource().equals(prin.getjBventas())) {
             Controlador_Ventas con = new Controlador_Ventas();
             con.llenarventas();
-       }
-       
-       
+        }
+
         if (e.getSource().equals(prin.getJBimg())) {
 //            modProd.setNom(prin.getTxtnom().getText());
 //            modProd.setDes(prin.getTXTdescrip().getText());
@@ -211,22 +196,20 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
         if (seleccion == 1) {
             gestionCliente();
         }
-         if (seleccion == 2) {
+        if (seleccion == 2) {
             gestionProveedor();
         }
 
         if (seleccion == 3) {
             gestionVentas();
         }
-         if (seleccion == 4) {
-            gestionFactura();
-        }
+//        if (seleccion == 4) {
+//            gestionFactura();
+//        }
 
-         if (seleccion == 5) {
+        if (seleccion == 5) {
             gestionProducto();
-        }  
-      
-
+        }
 
         prin.getJTUSUARIO().addMouseListener(new MouseAdapter() {
             @Override
@@ -243,23 +226,15 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
             }
         });
     }
-        public boolean Ingresarcorreo (String correo){
-        String valor = "^{A-za-z0-9+_.-}+@{A-Za-Z0-9.-}+|.{A-Z|a-z}{2,}$";
-        Pattern validar = Pattern.compile(valor);
-        Matcher cor = validar.matcher(correo);    
-            return cor.matches();
-        }
-        public Border titulo (String tit){
-        Border borde = BorderFactory.createT
-            
-            
-            
-            
-            
-            return borde;
-        }
-    
 
+    public boolean Ingresarcorreo(String correo) {
+        String valor = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z}{2,]$";
+        Pattern validar= Pattern.compile(valor);
+        Matcher cor = validar.matcher(correo);
+        return cor.matches();
+    }
+
+   
     @Override
     public void insertUpdate(DocumentEvent e) {
         modUsu.mostrarTablaUsuario(prin.getJTUSUARIO(), prin.getTXTbuscar().getText(), "usuario");
