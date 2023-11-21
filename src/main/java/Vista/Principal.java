@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 /**
  *
@@ -80,8 +79,6 @@ public class Principal extends javax.swing.JFrame {
         this.JTUSUARIO = JTUSUARIO;
     }
 
-
-
     public JTextField getTxtimg() {
         return Txtimg;
     }
@@ -89,8 +86,6 @@ public class Principal extends javax.swing.JFrame {
     public void setTxtimg(JTextField Txtimg) {
         this.Txtimg = Txtimg;
     }
-
- 
 
 //    public JTextField getTxtnom() {
 //        return Txtnom;
@@ -107,7 +102,6 @@ public class Principal extends javax.swing.JFrame {
 //    public void setJbGU(JButton JbGU) {
 //        this.JbGU = JbGU;
 //    }
-
     public JPanel getjPanel1() {
         return jPanel1;
     }
@@ -124,8 +118,6 @@ public class Principal extends javax.swing.JFrame {
 //        this.TXTbus1 = TXTbus1;
 //    }
 
-   
-
     public JButton getJBimg() {
         return JBimg;
     }
@@ -141,7 +133,6 @@ public class Principal extends javax.swing.JFrame {
 //    public void setTXTdescrip(JTextPane TXTdescrip) {
 //        this.TXTdescrip = TXTdescrip;
 //    }
-
     public JTabbedPane getJdproducto() {
         return jdproducto;
     }
@@ -215,9 +206,6 @@ public class Principal extends javax.swing.JFrame {
     }
 
   
-
-   
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -567,7 +555,6 @@ public class Principal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btlupa;

@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.ModeloProducto;
 import Vista.Nuevo_producto;
 import Vista.Principal;
+import Vista.Principal1;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -10,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class Controlador_Producto {
 
-    Principal prin = new Principal();
+    Principal1 prin = new Principal1();
     ModeloProducto Mp = new ModeloProducto();
     Nuevo_producto nuvp = new Nuevo_producto();
 

@@ -3,16 +3,19 @@ package Controlador;
 //import Modelo.ModeloUsuario;
 import Modelo.ModeloProducto;
 import Modelo.ModeloUsuario;
-import Modelo.Modelo_factura;
+//import Modelo.Modelo_factura;
 import Modelo.Modelo_ventas;
 import Modelo.Modelocliente;
 import Modelo.Modeloproveedor;
+
 import Vista.Factura;
+
+
 import Vista.Nuevo_Cliente;
 import Vista.Nuevo_producto;
 import Vista.Nuevo_usuario_vista;
 import Vista.P;
-import Vista.Principal;
+//import Vista.Principal;
 import Vista.Producto;
 import Vista.Ventas;
 import java.awt.Color;
@@ -22,11 +25,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
@@ -34,7 +41,9 @@ import javax.swing.event.DocumentListener;
 
 
 public class ControladorPrincipal implements ActionListener, ChangeListener, DocumentListener {
-    
+
+
+
     Modeloproveedor mop = new Modeloproveedor();
     ModeloUsuario modUsu = new ModeloUsuario();
     Ventas ven = new Ventas();
@@ -45,14 +54,14 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
     Producto pro = new Producto();
     ModeloProducto modProd = new ModeloProducto();
     Modelocliente modCli = new Modelocliente();
-    Modelo_factura fac = new Modelo_factura();
+//    Modelo_factura fac = new Modelo_factura();
     Modelo_ventas vent = new Modelo_ventas();
     Factura fact = new Factura();
     Nuevo_producto nvp = new Nuevo_producto();
     
     
     
-    
+
     public ControladorPrincipal() {
         prin.getJdprincipal().addChangeListener(this);
         prin.getjBventas().addActionListener(this);
@@ -66,8 +75,11 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
         us.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         nue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         nuev.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         nvp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
+
+        prin.getJdprincipal().addChangeListener(this);
     }
     
 
@@ -87,8 +99,9 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
         modCli.mostrarTablacliente(prin.getjTCliente(), "", "cliente");
 
     }
+
      public void gestionFactura() {
-        fac.mostrarTablaFactura(prin.getjTFactura(), "", "factura");
+     fac.mostrarTablaFactura(prin.getjTFactura(), "", "factura");
 
     }
 
@@ -96,7 +109,7 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
        vent.mostrarTablaVentas(prin.getjTVentas(), "", "ventas");
 
     }
-    
+
     public void gestionProducto() {
         modProd.mostrarTablaProducto(prin.getjTproducto(), "", "producto");
 
@@ -201,12 +214,14 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
          if (seleccion == 2) {
             gestionProveedor();
         }
+
         if (seleccion == 3) {
             gestionVentas();
         }
          if (seleccion == 4) {
             gestionFactura();
         }
+
          if (seleccion == 5) {
             gestionProducto();
         }  
@@ -228,6 +243,22 @@ public class ControladorPrincipal implements ActionListener, ChangeListener, Doc
             }
         });
     }
+        public boolean Ingresarcorreo (String correo){
+        String valor = "^{A-za-z0-9+_.-}+@{A-Za-Z0-9.-}+|.{A-Z|a-z}{2,}$";
+        Pattern validar = Pattern.compile(valor);
+        Matcher cor = validar.matcher(correo);    
+            return cor.matches();
+        }
+        public Border titulo (String tit){
+        Border borde = BorderFactory.createT
+            
+            
+            
+            
+            
+            return borde;
+        }
+    
 
     @Override
     public void insertUpdate(DocumentEvent e) {

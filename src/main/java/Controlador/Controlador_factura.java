@@ -1,14 +1,20 @@
 
 package Controlador;
 
+
     
 
 import Modelo.Modelo_factura;
 import Vista.Factura;
 import Vista.Principal;
+import Vista.Principal1;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import javax.swing.JOptionPane;
+
 import javax.swing.JOptionPane;
 
 public class Controlador_factura {
@@ -43,3 +49,9 @@ Modelo_factura moft = new Modelo_factura();
             }
         }
     }
+
+
+public class Controlador_factura {
+    
+}
+
